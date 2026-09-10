@@ -98,3 +98,184 @@ uploads until they press **Reset** on those cards (or clear site data). On a fre
 and for every new visitor, the new photos show immediately.
 
 ---
+## 2026-09-10 — Resolve Vercel build log errors & warnings
+
+### Trigger
+Vercel deploy (commit `9938d84`) succeeded but emitted one error and several warnings.
+
+### 1. `error: Unknown lockfile version` at `bun.lock:2:22` — FIXED
+`bun.lock` declares `"lockfileVersion": 2` + `"configVersion": 1`, which is the **Bun 1.4**
+lockfile format. Vercel's build image ships **Bun 1.3.14**, which only reads v0/v1, so it
+printed `warn: Ignoring lockfile` and re-resolved every dependency from scratch.
+
+**Impact:** builds were *not reproducible* — a transitive dependency could silently publish a
+breaking patch and reach production without any change on our side. That is the real risk
+here, not the log line.
+
+Bun is not installed on this machine, so the lockfile could not be regenerated downward.
+Per Vercel's own guidance there is no `.bun-version` file and no `packageManager` support for
+Bun — the supported way to pin the build-phase Bun version is an Install Command override.
+
+**Added `vercel.json`:**
+```json
+{ "installCommand": "bunx bun@1.4.2 install" }
+```
+Vercel's preinstalled Bun runs `bunx` to fetch 1.4.2, which understands the v2 lockfile.
+This is the only key in the file, so all other Project Settings are left as-is.
+
+> `--frozen-lockfile` was deliberately **not** used: `package.json` changed in step 2 below
+> and `bun.lock` cannot be regenerated here, so a frozen install would hard-fail the build.
+> Once someone with Bun 1.4 runs `bun install` and commits the refreshed lockfile, adding
+> `--frozen-lockfile` would be a good hardening step.
+
+### 2. `warn: Duplicate dependency: "vite"` — FIXED
+`vite@^6.2.3` was listed in **both** `dependencies` (line 24) and `devDependencies` (line 35).
+Removed the `devDependencies` entry; Vite stays in `dependencies` next to its siblings
+(`@vitejs/plugin-react`, `@tailwindcss/vite`), matching the convention already used in this
+project and guaranteeing it is installed no matter how devDependencies are treated.
+
+### 3. `(!) Some chunks are larger than 500 kB` — FIXED
+The app shipped as one 786.58 kB chunk. Added `build.rollupOptions.output.manualChunks` to
+`vite.config.ts`, splitting vendor code by `node_modules` path.
+
+| Before | After |
+| --- | --- |
+| `index.js` **786.58 kB** (gzip 219.00 kB) | `index.js` **363.47 kB** (gzip 75.37 kB) |
+| | `react-vendor.js` 223.21 kB (gzip 69.23 kB) |
+| | `map-vendor.js` 175.80 kB (gzip 66.57 kB) |
+| | `icons-vendor.js` 24.20 kB (gzip 5.29 kB) |
+
+Total bytes are unchanged; the win is that vendor chunks now stay cached in returning
+visitors' browsers across deploys, and the warning is gone.
+
+Two notes on how this was arrived at:
+- The **object** form of `manualChunks` was tried first and did *not* work — it only captured
+  bare entry modules, producing a 4 kB `react-vendor` (the app imports `react-dom/client`,
+  not `react-dom`). The **function** form captures the whole dependency subtree correctly.
+- A `motion-vendor` chunk was dropped after it built empty: `motion`, `@google/genai`,
+  `express` and `dotenv` are all in `package.json` but **not imported anywhere in `src/`**,
+  so none of them are in the bundle. Worth a future cleanup, left alone here as out of scope.
+
+### 4. `Blocked 2 postinstalls` — reviewed, intentionally left alone
+The packages with install scripts in this tree are `esbuild` (postinstall), `protobufjs`
+(postinstall) and `@google/genai` (preinstall). Bun blocks these by default as a supply-chain
+safety measure. Neither is required: modern esbuild resolves its platform binary through
+`optionalDependencies`, and protobufjs's script only matters for its CLI. The successful
+build is the proof. Adding `"trustedDependencies": ["esbuild"]` to `package.json` would
+silence the note, but it trades a security default for cosmetics, so it was not done.
+
+### Verification
+- `npm run lint` (`tsc --noEmit`) — passes, 0 errors
+- `npm run build` — succeeds, **no chunk-size warning**
+- Production build served via `vite preview` and driven in a real browser:
+  React mounts, **0 runtime errors**, all 5 tabs (Home, Programs, Jobs, Success Stories,
+  Centres, ALC Partner) render, the `@svg-maps/india` map still draws from its new separate
+  chunk, and all 4 new reel images load. Chunk splitting broke nothing.
+
+### Files changed
+- **Added** `vercel.json`
+- **Modified** `package.json` — removed duplicate `vite` from `devDependencies`
+- **Modified** `vite.config.ts` — added `build.rollupOptions.output.manualChunks`
+
+---
+## 2026-09-10 — Replace the 24 Success Story student photos with the real flyer headshots
+
+### Request
+Client supplied `mokkamamma-attachments/` (20 PNG selection flyers) and asked that every
+success-story photo be replaced using them — **opening each image, reading the name printed
+on it**, and matching it to the existing entry of that name. Explicitly: no mismatches, and
+nothing else may break.
+
+### Key finding — the photo slot is a headshot, not a flyer
+`StudentFlyerCard.tsx` (poster variant) **recreates the BankPlus flyer in React**: it draws
+the BankPlus header, the decorative SVG curves, the Instagram-verified badge, and prints the
+student's name, role and bank itself. `studentPhoto` feeds only a small **square** frame
+(`w-32 h-32 sm:w-36 sm:h-36`, `object-cover`).
+
+Dropping the full 1080×1080 flyer PNG into that slot would shrink the whole poster into a
+128 px square — unreadable name text inside the frame, with the UI printing the same name,
+role and bank again directly underneath. That doubled-up look is visible in the screenshot
+the client sent.
+
+So each flyer's **passport photo was extracted** and used as `studentPhoto`. The UI supplies
+the branding and captions, exactly as it was designed to.
+
+### How the crops were produced
+The portrait sits on a white field, with blue corner triangles, the BankPlus logo top-right
+and caption text below — position and size differ per flyer, so a fixed crop was not viable.
+Detection instead scans the central region for the tallest contiguous band of rows
+containing a long unbroken run of non-white pixels, then measures that band's column extent.
+
+Two flyers (509 Darshit Dwivedi, 514 Hardik Saxena) have subjects photographed on a **white
+studio backdrop** that blends into the white page, so a single threshold failed on them. The
+detector escalates its whiteness threshold (238 → 249 → 252 → 254) until a plausibly tall
+block appears — all 20 then resolved correctly.
+
+Each detected box was cropped square, biased 18% upward so the face centres rather than
+being cut at the forehead, and written to `public/assets/students/<slug>.jpg` at 600×600.
+A contact sheet of all 19 was reviewed visually before wiring anything up.
+
+### Matching result
+Full table in `verification-screenshots/photo-mapping.md`.
+
+- **19 of 20** flyers matched a story by exact `studentName` and were applied.
+- **1 flyer unused** — `518.png` is **Anjani Sharma**, a name that appears nowhere in
+  `SUCCESS_STORIES`. Left unused rather than forced onto an unrelated student.
+- **5 stories have no flyer** — Priya Prajapati, Gaurav Jaisawal, Saurabh Mishra,
+  Lovely Gupta, Govind Trivedi — and keep their existing stock photos. Flyers needed.
+
+Matching was on name only. Position/order was never used, so a missing flyer cannot shift
+every subsequent photo onto the wrong person.
+
+### ⚠️ Four bank discrepancies — site copy deliberately NOT changed
+The name matches exactly in all four; only the bank printed on the flyer disagrees with the
+bank in the site's story text. Changing the copy is a content decision, so it was left alone
+and flagged for the client:
+
+| Student | Bank on site | Bank on flyer |
+| --- | --- | --- |
+| Deeksha Singh | Kotak Mahindra Bank | Indiabulls Home Loans |
+| Sashi Sharma | Axis Bank | HDFC Bank |
+| Ashwini Kumar | Kotak Mahindra Bank | HDFC Bank |
+| Gopi Chand | HDB Financial Services | HDFC Bank |
+
+Note `Deeksha Singh` and `Deeksha Tiwari` are two different people with two separate flyers
+(505 and 521); both were matched correctly and were not conflated.
+
+### Files changed
+- **Added** `public/assets/students/*.jpg` — 19 headshots, named by story slug so the
+  filename itself states who it belongs to
+- **Modified** `src/data/mockData.ts` — only the `studentPhoto` field of the 19 matched
+  `SUCCESS_STORIES` entries. Names, roles, banks, salaries, hometowns, quotes, journeys and
+  `originalFlyerFile` are all untouched.
+
+`originalFlyerFile` was deliberately left as-is: it records the client's own original
+archive filenames (`3.png`, `January 2019.png`, …) and overwriting it with the new
+attachment numbers would destroy a reference only they can interpret.
+
+### Verification
+- `npm run lint` (`tsc --noEmit`) — passes, 0 errors
+- `npm run build` — succeeds; all 19 headshots emitted to `dist/assets/students/`
+- Automated cross-check: for all 24 stories, each `studentPhoto` path was re-parsed and
+  asserted to (a) exist on disk and (b) have a filename slug whose first and last name-parts
+  match that entry's `studentName` — **0 mismatches**, 19 local, 5 stock
+- Browser: all 19 load at 600×600, `alt` text matches the filename in every case
+- Poster variant, **Executive** variant (19 local photos, 0 broken) and the
+  **View Interview Journey** modal (serves `/assets/students/aishwarya-tiwari.jpg`) all work
+- Screenshots in `verification-screenshots/before|after/` — `wall-of-fame-row1`,
+  `wall-of-fame-row2` (desktop) and `wall-of-fame-mobile`
+
+### Pre-existing issues found (not introduced here, not fixed)
+- **Lovely Gupta's** stock Unsplash URL (`photo-1534751516642-a1714f5a5467`) is dead and
+  renders broken. She is one of the 5 with no flyer; her flyer would fix it.
+- `StoryModal.tsx:18` seeds state with `story?.studentPhoto || ''`, so React logs
+  *"An empty string was passed to the src attribute"* when the modal closes. Cosmetic
+  console warning, pre-existing, untouched.
+
+### ⚠️ Same localStorage caveat as the reels
+`StudentFlyerCard` reads `getCustomPhoto(story.id)` **before** `story.studentPhoto`, so any
+photo previously uploaded through the Photo Manager still wins on that browser. Use the
+Photo Manager's reset (or clear site data) to see the new defaults. New visitors see them
+immediately.
+
+---

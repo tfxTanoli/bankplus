@@ -385,7 +385,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-aishwarya-tiwari',
     studentName: 'Aishwarya Tiwari',
-    studentPhoto: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/aishwarya-tiwari.jpg',
     hiredBank: 'Axis Bank',
     bankLogo: 'AXIS',
     bankColor: '#971237',
@@ -405,7 +405,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-rashmi-rani',
     studentName: 'Rashmi Rani',
-    studentPhoto: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/rashmi-rani.jpg',
     hiredBank: 'Bandhan Bank',
     bankLogo: 'BANDHAN',
     bankColor: '#004B87',
@@ -425,7 +425,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-shiv-singh-rathore',
     studentName: 'Shiv Singh Rathore',
-    studentPhoto: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/shiv-singh-rathore.jpg',
     hiredBank: 'Axis Bank',
     bankLogo: 'AXIS',
     bankColor: '#971237',
@@ -445,7 +445,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-shivani-shrivastava',
     studentName: 'Shivani Shrivastava',
-    studentPhoto: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/shivani-shrivastava.jpg',
     hiredBank: 'IndusInd Bank',
     bankLogo: 'INDUSIND',
     bankColor: '#861A22',
@@ -465,7 +465,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-gautam-bhasker',
     studentName: 'Gautam Kumar Bhasker',
-    studentPhoto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/gautam-bhasker.jpg',
     hiredBank: 'Kotak Mahindra Bank',
     bankLogo: 'KOTAK',
     bankColor: '#ED1C24',
@@ -485,7 +485,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-akansha-singh',
     studentName: 'Akansha Singh',
-    studentPhoto: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/akansha-singh.jpg',
     hiredBank: 'Kotak Mahindra Bank',
     bankLogo: 'KOTAK',
     bankColor: '#ED1C24',
@@ -525,7 +525,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-gauri-dixit',
     studentName: 'Gauri Dixit',
-    studentPhoto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/gauri-dixit.jpg',
     hiredBank: 'The Royal Bank of Scotland',
     bankLogo: 'RBS',
     bankColor: '#002663',
@@ -565,7 +565,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-simran-shukla',
     studentName: 'Simran Shukla',
-    studentPhoto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/simran-shukla.jpg',
     hiredBank: 'Axis Bank',
     bankLogo: 'AXIS',
     bankColor: '#971237',
@@ -585,7 +585,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-divya-singh',
     studentName: 'Divya Singh',
-    studentPhoto: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/divya-singh.jpg',
     hiredBank: 'Kotak Mahindra Bank',
     bankLogo: 'KOTAK',
     bankColor: '#ED1C24',
@@ -605,7 +605,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-akash-mishra',
     studentName: 'Akash Mishra',
-    studentPhoto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/akash-mishra.jpg',
     hiredBank: 'Kotak Mahindra Bank',
     bankLogo: 'KOTAK',
     bankColor: '#ED1C24',
@@ -625,7 +625,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-tanu-agarwal',
     studentName: 'Tanu Agarwal',
-    studentPhoto: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/tanu-agarwal.jpg',
     hiredBank: 'HDFC Bank',
     bankLogo: 'HDFC',
     bankColor: '#004B87',
@@ -645,7 +645,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-hardik-saxena',
     studentName: 'Hardik Saxena',
-    studentPhoto: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/hardik-saxena.jpg',
     hiredBank: 'Indiabulls Home Loans',
     bankLogo: 'INDIABULLS',
     bankColor: '#008000',
@@ -665,7 +665,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-darshit-dwivedi',
     studentName: 'Darshit Dwivedi',
-    studentPhoto: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/darshit-dwivedi.jpg',
     hiredBank: 'Bandhan Bank',
     bankLogo: 'BANDHAN',
     bankColor: '#004B87',
@@ -685,7 +685,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-atul-singh',
     studentName: 'Atul Singh',
-    studentPhoto: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/atul-singh.jpg',
     hiredBank: 'Kotak Mahindra Bank',
     bankLogo: 'KOTAK',
     bankColor: '#ED1C24',
@@ -725,7 +725,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-deeksha-tiwari',
     studentName: 'Deeksha Tiwari',
-    studentPhoto: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/deeksha-tiwari.jpg',
     hiredBank: 'Indiabulls Home Loans',
     bankLogo: 'INDIABULLS',
     bankColor: '#008000',
@@ -763,7 +763,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-deeksha-singh',
     studentName: 'Deeksha Singh',
-    studentPhoto: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/deeksha-singh.jpg',
     hiredBank: 'Kotak Mahindra Bank',
     bankLogo: 'KOTAK',
     bankColor: '#ED1C24',
@@ -782,7 +782,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-ashwini-kumar',
     studentName: 'Ashwini Kumar',
-    studentPhoto: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/ashwini-kumar.jpg',
     hiredBank: 'Kotak Mahindra Bank',
     bankLogo: 'KOTAK',
     bankColor: '#ED1C24',
@@ -801,7 +801,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-sashi-sharma',
     studentName: 'Sashi Sharma',
-    studentPhoto: 'https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/sashi-sharma.jpg',
     hiredBank: 'Axis Bank',
     bankLogo: 'AXIS',
     bankColor: '#971237',
@@ -820,7 +820,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-gopi-chand',
     studentName: 'Gopi Chand',
-    studentPhoto: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/gopi-chand.jpg',
     hiredBank: 'HDB Financial Services',
     bankLogo: 'HDB',
     bankColor: '#004B87',
