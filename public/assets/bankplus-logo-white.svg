@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 52" fill="none" width="100%" height="100%">
+  <defs>
+    <!-- Dark Mode Emblem Background Gradient -->
+    <linearGradient id="emblemGradDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stopColor="#0f172a" />
+      <stop offset="50%" stopColor="#1e293b" />
+      <stop offset="100%" stopColor="#0369a1" />
+    </linearGradient>
+
+    <!-- Dark Mode Emblem Border Highlight -->
+    <linearGradient id="emblemBorderDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.9" />
+      <stop offset="100%" stopColor="#0284c7" stopOpacity="0.4" />
+    </linearGradient>
+
+    <!-- Dark Mode Plus Gradient -->
+    <linearGradient id="plusGradDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stopColor="#ffffff" />
+      <stop offset="50%" stopColor="#e0f2fe" />
+      <stop offset="100%" stopColor="#38bdf8" />
+    </linearGradient>
+
+    <filter id="badgeShadowDark" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.6" />
+    </filter>
+  </defs>
+
+  <style>
+    .bp-text-bank-dark {
+      font-family: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 900;
+      font-style: italic;
+      font-size: 24.5px;
+      letter-spacing: -0.5px;
+      fill: #ffffff;
+    }
+    .bp-text-plus-dark {
+      font-family: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 900;
+      font-style: italic;
+      font-size: 24.5px;
+      letter-spacing: -0.5px;
+      fill: #38bdf8;
+    }
+    .bp-text-tm-dark {
+      font-family: 'Montserrat', -apple-system, sans-serif;
+      font-weight: 800;
+      font-size: 8.5px;
+      fill: #94a3b8;
+    }
+    .bp-text-tagline-dark {
+      font-family: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 7.2px;
+      letter-spacing: 0.14em;
+      fill: #7dd3fc;
+    }
+  </style>
+
+  <!-- 1. LEFT EMBLEM -->
+  <g filter="url(#badgeShadowDark)">
+    <!-- Base Rounded Square -->
+    <rect x="4" y="6" width="40" height="40" rx="10" fill="url(#emblemGradDark)" />
+    <!-- Inner Cyan Border -->
+    <rect x="4.5" y="6.5" width="39" height="39" rx="9.5" stroke="url(#emblemBorderDark)" stroke-width="1.2" />
+
+    <!-- Plus Cross Symbol -->
+    <rect x="20" y="14" width="8" height="24" rx="3.5" fill="url(#plusGradDark)" />
+    <rect x="12" y="22" width="24" height="8" rx="3.5" fill="url(#plusGradDark)" />
+    <!-- Center Spark Gem Node -->
+    <polygon points="24,22 27.5,26 24,30 20.5,26" fill="#ffffff" />
+    <circle cx="24" cy="26" r="1.5" fill="#0284c7" />
+  </g>
+
+  <!-- 2. WORDMARK -->
+  <text x="54" y="30" class="bp-text-bank-dark">BANK</text>
+  <text x="128" y="30" class="bp-text-plus-dark">PLUS</text>
+  <text x="198" y="19" class="bp-text-tm-dark">™</text>
+
+  <!-- 3. TAGLINE -->
+  <text x="55" y="43" class="bp-text-tagline-dark">FINANCIAL EDUCATION SIMPLIFIED.</text>
+</svg>
