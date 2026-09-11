@@ -279,3 +279,49 @@ Photo Manager's reset (or clear site data) to see the new defaults. New visitors
 immediately.
 
 ---
+## 2026-09-11 — Fix Lovely Gupta's broken placeholder photo
+
+### Request
+Client asked for a suitable Unsplash photo for Lovely Gupta (Officer, HDFC Bank, Varanasi),
+the one remaining story whose stock portrait rendered broken.
+
+### Cause
+Her `studentPhoto` pointed at `photo-1534751516642-a1714f5a5467`, which **404s** from
+images.unsplash.com. Curl-tested all five stock URLs: the other four return 200, only hers
+was dead. It was the last broken image on the page.
+
+### Choice of replacement
+Rather than pull an arbitrary new ID, the candidate pool was the portrait URLs **freed up**
+when 19 students received their real flyer headshots — already present in this codebase,
+already known to load. Six were confirmed 200 **and** no longer referenced anywhere in
+`src/`, so reusing one creates no duplicate face on the site.
+
+All six were downloaded and viewed as a contact sheet before choosing. Two were fashion/
+beauty shots and two were casual — unsuitable for a bank placement card. The pick was
+`photo-1567532939604-b6b5b0db2604` (previously Shivani Shrivastava's, freed when flyer
+520.png replaced it):
+
+- **head-and-shoulders framing** — crops cleanly into the card's small square
+  (`w-32 h-32`, `object-cover`) with the face filling the frame, matching the 19 real
+  passport headshots beside it
+- neutral background, dark top — reads as a professional portrait
+- the runner-up (`photo-1573496359142-b8d87734a5a2`) wears a blazer but is a wide seated
+  shot whose face would shrink to a fraction of a 128 px square
+
+### Files changed
+- `src/data/mockData.ts` — **one line**, Lovely Gupta's `studentPhoto` only. Verified before
+  writing that the URL being replaced belonged to her entry.
+
+### Verification
+- `npm run lint` — passes; `npm run build` — succeeds
+- In-browser: her image loads at 450×675, and a sweep of all 34 images on the Success
+  Stories page reports **0 broken** — previously 1
+- Screenshot: `verification-screenshots/after/lovely-gupta-photo-AFTER.png`, showing her
+  card framed consistently beside Deeksha Singh and Ashwini Kumar's real headshots
+
+### ⚠️ Still a placeholder
+This is a stock portrait standing in for a named real person, exactly as the site already
+does for the other four students without flyers. It should be replaced as soon as Lovely
+Gupta's actual flyer is supplied.
+
+---

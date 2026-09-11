@@ -744,7 +744,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-lovely-gupta',
     studentName: 'Lovely Gupta',
-    studentPhoto: 'https://images.unsplash.com/photo-1534751516642-a1714f5a5467?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=450&auto=format&fit=crop&q=80',
     hiredBank: 'HDFC Bank',
     bankLogo: 'HDFC',
     bankColor: '#004B87',

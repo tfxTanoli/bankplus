@@ -41,6 +41,12 @@ The passport photo was then cropped out of the flyer and saved as the student's
 
 Please send flyers for these five and they will be dropped in the same way.
 
+**Lovely Gupta** — her original stock URL (`photo-1534751516642-a1714f5a5467`) was dead and
+rendered as a broken image. Replaced with `photo-1567532939604-b6b5b0db2604`, a working
+head-and-shoulders portrait on a neutral background that matches the framing of the real
+flyer headshots. This is a **placeholder**, not her photo — it should be swapped the moment
+her flyer arrives.
+
 ## Bank differs between flyer and site copy (4)
 
 Name matching is exact in all four cases; only the bank on the flyer disagrees with the
