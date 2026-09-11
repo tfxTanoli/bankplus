@@ -499,3 +499,68 @@ the new bytes (135,291 and 144,633) rather than cached copies.
   `after/campus-life-gallery-mobile-AFTER.png`
 
 ---
+## 2026-09-11 — Official brand logo in the header and footer
+
+### Request
+Client supplied `public/bankplus-logo.png` and asked for it in the **top-left of the menu**
+and the **top-left of the footer**, without breaking anything else.
+
+### Starting state
+The client had already deleted five older logo files from `public/`
+(`bankplus-logo-dark{,-solid}.png`, `bankplus-logo-{dark,light}.svg`, `bankplus-logo-light.png`).
+Checked first: **none of them were referenced anywhere in `src/`**, and the favicon points at
+a different file (`public/assets/bankplus-logo.svg`) which still exists — so the deletions
+broke nothing.
+
+`BankPlusLogo.tsx` does not use an image at all by default; it **draws the logo as inline
+SVG**, with a `customLogo` branch in front of it for logos uploaded through the Logo Manager.
+
+### Asset prep — the supplied PNG could not be used as-is
+`bankplus-logo.png` is 1622×1091 but the artwork only occupies a 1006×518 region — **29.4% of
+the canvas**, off-centre. Dropped into the `h-10` slot it would have rendered at roughly half
+size and visually misaligned. Alpha was verified genuinely transparent (corners `a=0`), which
+matters because the footer places the logo on a white chip inside a dark bar.
+
+Trimmed to the artwork bounds and exported at 800×412 as
+`public/assets/bankplus-logo-official.png` (65 KB). **The client's original file is left
+untouched** at `public/bankplus-logo.png`.
+
+### Implementation
+Added an opt-in `officialAsset` prop to `BankPlusLogo`, rather than swapping the component's
+default. Render priority is now:
+
+1. `customLogo` from localStorage (Logo Manager upload) — **unchanged, still wins**
+2. `officialAsset` PNG — new, only where explicitly requested
+3. the drawn inline SVG — unchanged default everywhere else
+
+`Navbar.tsx` and `Footer.tsx` pass `officialAsset`. `StudentFlyerCard` (the logo on all 24
+story cards) and the `LogoManagerModal` previews were deliberately **not** changed, since the
+client named only the menu and the footer.
+
+### Layout bug found and fixed during verification
+First render put the header logo at **9×48 px**. The header row is
+`flex items-center justify-between` and the logo wrapper is a shrinkable flex item, so
+`max-w-full` on the image let the nav links squeeze it to almost nothing. Fixed by dropping
+`max-w-full` and adding `shrink-0` on the image and its wrapper in the `officialAsset` branch,
+plus `shrink-0` on the Navbar's logo container. Now 93×48 on desktop, 78×40 on mobile.
+This only affects the image branch — the SVG branches are untouched.
+
+### Verification
+- `npm run lint` (`tsc --noEmit`) passes; `npm run build` succeeds, both
+  `assets/bankplus-logo-official.png` and the original `bankplus-logo.png` ship
+- Browser: exactly **2** official logos on the page — one inside `<header>`, one inside
+  `<footer>` — both loading, 0 broken images anywhere
+- Responsive: 1440px → 93×48, 390px → 78×40, **no horizontal overflow at either width**
+- **Logo Manager regression test**: injected a custom logo into
+  `bankplus_custom_logo_data` → official count dropped to 0 and 5 custom logos rendered
+  (header, footer and story cards); removing it restored the official logo. The upload
+  override still takes priority exactly as before.
+- Screenshots: `after/logo-header-desktop-AFTER.png`, `after/logo-footer-desktop-AFTER.png`,
+  `after/logo-header-mobile-AFTER.png`
+
+### Offer left open
+The same logo also appears on the **24 success-story flyer cards** (`StudentFlyerCard`) and in
+the Logo Manager preview, both still on the drawn SVG. Switching those is a one-word change
+(`officialAsset` on that call site) if the client wants full brand consistency.
+
+---

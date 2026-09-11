@@ -12,7 +12,11 @@ export interface BankPlusLogoProps {
   showTagline?: boolean;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   styleVariant?: BankPlusLogoStyle;
+  officialAsset?: boolean; // render the official brand PNG instead of the drawn SVG
 }
+
+// Official brand logo, trimmed of its transparent padding so it fills the slot.
+const OFFICIAL_LOGO_SRC = '/assets/bankplus-logo-official.png';
 
 export const BankPlusLogo: React.FC<BankPlusLogoProps> = ({
   className = '',
@@ -20,6 +24,7 @@ export const BankPlusLogo: React.FC<BankPlusLogoProps> = ({
   showTagline = true,
   size = 'md',
   styleVariant,
+  officialAsset = false,
 }) => {
   const uid = useId().replace(/:/g, '');
   const isDark = variant === 'dark';
@@ -66,7 +71,23 @@ export const BankPlusLogo: React.FC<BankPlusLogoProps> = ({
     );
   }
 
-  // 2. High-Fidelity Mathematical Vector SVG
+  // 2. Official brand PNG (header and footer). A custom upload above still wins.
+  // shrink-0 and no max-w-full: as a flex item in the justify-between header row
+  // the logo would otherwise be squashed to a few pixels wide.
+  if (officialAsset) {
+    return (
+      <div className={`inline-flex items-center select-none relative shrink-0 ${className}`}>
+        <img
+          src={OFFICIAL_LOGO_SRC}
+          alt="BankPlus - Financial Education Simplified"
+          style={{ transform: scale !== 100 ? `scale(${scale / 100})` : undefined }}
+          className={`${heightClass} w-auto shrink-0 object-contain transition-transform`}
+        />
+      </div>
+    );
+  }
+
+  // 3. High-Fidelity Mathematical Vector SVG
   // Style 1: Executive Banking Crest (Default)
   if (activeStyle === 'emblem') {
     return (

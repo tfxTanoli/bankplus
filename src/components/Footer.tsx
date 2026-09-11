@@ -118,7 +118,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNav('home')}>
               <div className="bg-white px-3.5 py-1.5 rounded-xl inline-flex items-center shadow-md">
-                <BankPlusLogo variant="light" size="md" />
+                <BankPlusLogo variant="light" size="md" officialAsset />
               </div>
             </div>
 

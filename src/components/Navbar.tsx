@@ -143,10 +143,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Logo */}
           <div 
             onClick={() => handleNavClick('home')}
-            className="flex items-center cursor-pointer group py-2"
+            className="flex items-center cursor-pointer group py-2 shrink-0"
             title="BankPlus Learning Home"
           >
-            <BankPlusLogo variant="light" size="md" />
+            <BankPlusLogo variant="light" size="md" officialAsset />
           </div>
 
           {/* Desktop Navigation Links */}
