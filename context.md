@@ -407,8 +407,8 @@ at the **same file** (`classroom/IMG-20260515-WA0024.jpg`), so two cards rendere
 | gallery-2 | Interview — Panel Mock Interview | `64641.jpg` | the only true mock-interview panel in the batch |
 | gallery-3 | 1-on-1 Mock Prep — with former RBI/SBI CGMs | `64655.jpg` | senior faculty leading a live session |
 | gallery-4 | Banking Systems Lab — Core Banking/Finacle | `64640.jpg` | branch-simulation lab, Teller counter + screens |
-| gallery-5 | Selection Moment — felicitation / letter handover | `3486.jpg` | placed cohort, "1000 Vacancies" banner |
-| gallery-6 | Alumni Network — gathering of placed POs | `3444.jpg` | tightened crop, see below |
+| gallery-5 | Selection Moment — felicitation / letter handover | `3444.jpg` | placed cohort, "1000 Vacancies" banner |
+| gallery-6 | Alumni Network — gathering of placed POs | `64619.jpg` | 1.45x tighter crop, see below |
 
 ### Aspect handling
 The slot is `h-52` full-width with `object-cover` — roughly **1.9:1 landscape**, which suits
@@ -443,5 +443,59 @@ Mitigations applied:
   0 broken images** across the whole page
 - Screenshots: `verification-screenshots/before/campus-life-gallery-BEFORE.png`,
   `after/campus-life-gallery-AFTER.png`, `after/campus-life-gallery-mobile-AFTER.png`
+
+---
+## 2026-09-11 — Campus Life gallery: reorder so no two consecutive cards repeat
+
+### Request
+Client (in Urdu): *"images ko aisy lagao k 1st and 2nd different hon, 2nd and 3rd different
+hon, 3rd and 4th, 4th and 5th, and finally 5th and sixth"* — i.e. **every consecutive pair
+of cards must show a different scene**.
+
+### Problem with the previous order
+Slots 5 and 6 were `3486.jpg` and `3444.jpg` — two frames of the **same** group photo, sitting
+directly next to each other. A 1.35× crop had been applied to slot 6 to soften it, but they
+were still the same moment side by side.
+
+### The five distinct scenes
+| Group | Files | Scene |
+| --- | --- | --- |
+| A | `64625` | seated classroom, blue striped curtains |
+| B | `64641` | mock interview semicircle |
+| C | `64655` | faculty leading a session, "HIRING" banner |
+| D | `64640` + `64619` | formal cohort, branch-simulation lab (near-dupes) |
+| E | `3486` + `3444` | large group, "1000 Vacancies" banner (near-dupes) |
+
+Six slots, five scenes — so exactly one group must appear twice. The fix is to place that
+repeat **non-consecutively**.
+
+### New order: A · B · C · D · E · D
+| Slot | Tag | Source | Group |
+| --- | --- | --- | --- |
+| 1 | Classroom Life | `64625` | A |
+| 2 | Interview | `64641` | B |
+| 3 | 1-on-1 Mock Prep | `64655` | C |
+| 4 | Banking Systems Lab | `64640` | D |
+| 5 | Selection Moment | `3444` | E |
+| 6 | Alumni Network | `64619` | D (1.45× tighter crop) |
+
+Consecutive check: 1≠2 ✓ 2≠3 ✓ 3≠4 ✓ 4≠5 ✓ 5≠6 ✓. The repeated D pair sits at slots 4 and 6,
+separated by slot 5 — and slot 6 is cropped 1.45× tighter so the two read as different
+photographs even when seen in the same row on desktop.
+
+Changing slot 5 from `3486` to `3444` also has a side benefit: `3486` stays **exclusive to the
+reels** section, cutting cross-section repetition from 4 photos to 3.
+
+### Why `src/data/mockData.ts` is untouched by this change
+Only the two JPEG files were regenerated — the output filenames
+(`gallery-5-selection-moment.jpg`, `gallery-6-alumni-network.jpg`) are unchanged, and those
+names describe the caption slot rather than the source photo. Verified the dev server serves
+the new bytes (135,291 and 144,633) rather than cached copies.
+
+### Verification
+- `npm run lint` passes; `npm run build` succeeds with all 6 campus files in `dist/`
+- Browser (cache-busted to defeat the identical filenames): all 6 load, 0 broken images
+- Screenshots refreshed: `after/campus-life-gallery-AFTER.png` and
+  `after/campus-life-gallery-mobile-AFTER.png`
 
 ---
