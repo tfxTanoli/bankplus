@@ -564,3 +564,60 @@ the Logo Manager preview, both still on the drawn SVG. Switching those is a one-
 (`officialAsset` on that call site) if the client wants full brand consistency.
 
 ---
+## 2026-09-11 — Remove the "Update Candidate Selection Photos" upload panel
+
+### Request
+Client: *"This section, for upload and all, should be removed… This should not be here"* —
+the admin drag-and-drop upload banner on the **Success Stories** page, showing
+*"17 Official Student Flyers Attached / 0 / 17 Photos Applied"* and
+*"Update Candidate Selection Photos"*.
+
+### What it was
+`src/components/WallOfFame.tsx`, the "CANDIDATE PHOTOS QUICK-APPLY BANNER" block — a
+public-facing admin tool that let **any visitor** drag images onto the page and overwrite the
+student flyer photos in their own browser. It had no business being on a live marketing site.
+
+### Removed
+- the whole banner block (77 lines of markup: badges, heading, drag-and-drop zone,
+  "Select All 17 Images" file input, "Manage & View Checklist" button, progress/notice states)
+- `handleInlineBatchFiles` — the batch upload/compress/assign handler it called
+- three pieces of state used only by it: `inlineNotice`, `isProcessingBatch`,
+  `isDraggingBanner`
+- `verifiedAppliedCount` — the counter that fed the "x / 17 Photos Applied" badge
+- three now-unused imports from `photoStorage`: `saveCustomPhoto`, `compressImage`,
+  `matchFileToStoryId` (the import collapsed to a single-line `getCustomPhotos` import)
+
+Net: **123 lines deleted, 1 added**. Production bundle 362.57 kB → 359.04 kB.
+
+### Deliberately kept (would have broken things)
+- `PhotoManagerModal` and `isPhotoManagerOpen` / `setIsPhotoManagerOpen` — still opened by the
+  separate **"Change Photos"** button in the filter bar (see below)
+- `getCustomPhotos` / `customPhotos` state and the `bankplus_photo_updated` listener — these
+  are what make previously-uploaded photos still display
+- the `Camera`, `Upload` and `CheckCircle2` icon imports — each still used elsewhere in the
+  file; verified by counting usages outside the import block before touching them
+
+### ⚠️ A second upload entry point still exists
+The filter bar still has a **"Change Photos"** button that opens the same
+`PhotoManagerModal`, i.e. the same upload capability in a smaller control. The client's
+screenshot showed only the banner, so only the banner was removed — this was flagged back to
+them rather than removed unasked.
+
+Also noted while surveying: `ClassroomPhotoManagerModal`, `LogoManagerModal` and
+`ReelsSectionEditorModal` are **never mounted anywhere** — dead code. `ExportSyncModal` is
+mounted in `App.tsx`.
+
+### Verification
+- `npm run lint` (`tsc --noEmit`) passes; `npm run build` succeeds
+- Browser, Success Stories page: all five banner strings absent (heading, flyers badge,
+  "Photos Applied", "Select All 17 Images", drag-and-drop copy), **0 runtime errors**
+- Nothing else lost: 24 story cards render, search box, bank filters, role filters and the
+  Posters/Executive toggle all present
+- Functional test of the surviving controls: 24 stories → "Axis Bank" filter → 4 →
+  reset → 24 → Executive view → 24
+- Layout seam checked: the stats banner now flows straight into the filter bar with the
+  section's existing spacing; no gap left behind, no horizontal overflow at 390px
+- Screenshots: `before/upload-panel-BEFORE.png`,
+  `after/upload-panel-removed-AFTER.png`, `after/upload-panel-removed-mobile-AFTER.png`
+
+---
