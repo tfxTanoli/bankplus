@@ -1128,49 +1128,49 @@ export const INSTAGRAM_STUDENT_REELS: StudentReel[] = [
 export const STUDENT_COMMUNITY_GALLERY: CommunityGalleryItem[] = [
   {
     id: 'gallery-1',
-    image: '/assets/drills/IMG-20260907-WA0022.jpg',
+    image: '/assets/campus/gallery-1-classroom-life.jpg',
     fallbackImage: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=700&auto=format&fit=crop&q=80',
-    fileName: 'IMG-20260907-WA0022.jpg',
+    fileName: 'gallery-1-classroom-life.jpg',
     caption: 'Mock Interview and Group Discussion practice sessions to eliminate hesitation',
     tag: 'Classroom Life'
   },
   {
     id: 'gallery-2',
-    image: '/assets/drills/IMG-20260907-WA0025.jpg',
+    image: '/assets/campus/gallery-2-panel-mock-interview.jpg',
     fallbackImage: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&auto=format&fit=crop&q=80',
-    fileName: 'IMG-20260907-WA0025.jpg',
+    fileName: 'gallery-2-panel-mock-interview.jpg',
     caption: 'Panel Mock Interview to Remove Hesitation and Build Confidence',
     tag: 'Interview'
   },
   {
     id: 'gallery-3',
-    image: '/assets/classroom/IMG-20260515-WA0024.jpg',
+    image: '/assets/campus/gallery-3-faculty-led-session.jpg',
     fallbackImage: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=700&auto=format&fit=crop&q=80',
-    fileName: 'IMG-20260515-WA0024.jpg',
+    fileName: 'gallery-3-faculty-led-session.jpg',
     caption: '1-on-1 Simulated Mock Interview with Former RBI & SBI Chief General Managers',
     tag: '1-on-1 Mock Prep'
   },
   {
     id: 'gallery-4',
-    image: '/assets/classroom/IMG-20260515-WA0024.jpg',
+    image: '/assets/campus/gallery-4-banking-systems-lab.jpg',
     fallbackImage: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&auto=format&fit=crop&q=80',
-    fileName: 'IMG-20260515-WA0024.jpg',
+    fileName: 'gallery-4-banking-systems-lab.jpg',
     caption: 'Core Banking Software & Finacle simulation session for private bank placements',
     tag: 'Banking Systems Lab'
   },
   {
     id: 'gallery-5',
-    image: '/assets/classroom/IMG-20260907-WA0012.jpg',
+    image: '/assets/campus/gallery-5-selection-moment.jpg',
     fallbackImage: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=700&auto=format&fit=crop&q=80',
-    fileName: 'IMG-20260907-WA0012.jpg',
+    fileName: 'gallery-5-selection-moment.jpg',
     caption: 'Official Felicitation and Appointment Letter Handover Ceremony',
     tag: 'Selection Moment'
   },
   {
     id: 'gallery-6',
-    image: '/assets/drills/IMG-20260907-WA0024.jpg',
+    image: '/assets/campus/gallery-6-alumni-network.jpg',
     fallbackImage: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?w=700&auto=format&fit=crop&q=80',
-    fileName: 'IMG-20260907-WA0024.jpg',
+    fileName: 'gallery-6-alumni-network.jpg',
     caption: 'Alumni Network Gathering of Placed BankPlus Probationary Officers & Managers',
     tag: 'Alumni Network'
   }

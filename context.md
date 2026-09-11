@@ -387,3 +387,61 @@ Two more added to the running list (now 6 total, see `photo-mapping.md`):
 2026-09-11, is now unused — her real flyer replaced it as intended.
 
 ---
+## 2026-09-11 — Campus Life gallery (last section of Success Stories)
+
+### Request
+Client's *"These images are not done"* (68633.jpg) referred back to his 2026-09-10 4:38 PM
+message **"Again in success stories page last"** (67802.jpg) — the **last section** of the
+Success Stories page, i.e. `STUDENT_COMMUNITY_GALLERY` / `#bankplus-campus-life-section`.
+He confirmed to use the photos already in `images/` (the same 7-file batch sent with the
+reels instruction, under his blanket rule *"match with what you see" / "what looks best"*).
+
+### Before
+All 6 cards were Unsplash stock (western students in a library, etc.). Cards 3 and 4 pointed
+at the **same file** (`classroom/IMG-20260515-WA0024.jpg`), so two cards rendered identically.
+
+### Mapping (caption-matched)
+| Slot | Tag / caption | Source | Note |
+| --- | --- | --- | --- |
+| gallery-1 | Classroom Life — mock interview & GD practice | `64625.jpg` | seated classroom, "Know Your Role in Branch Banking" |
+| gallery-2 | Interview — Panel Mock Interview | `64641.jpg` | the only true mock-interview panel in the batch |
+| gallery-3 | 1-on-1 Mock Prep — with former RBI/SBI CGMs | `64655.jpg` | senior faculty leading a live session |
+| gallery-4 | Banking Systems Lab — Core Banking/Finacle | `64640.jpg` | branch-simulation lab, Teller counter + screens |
+| gallery-5 | Selection Moment — felicitation / letter handover | `3486.jpg` | placed cohort, "1000 Vacancies" banner |
+| gallery-6 | Alumni Network — gathering of placed POs | `3444.jpg` | tightened crop, see below |
+
+### Aspect handling
+The slot is `h-52` full-width with `object-cover` — roughly **1.9:1 landscape**, which suits
+these landscape sources directly (unlike the 9:14 reel slot, which needed blurred-fill).
+Each was cropped to 1200×624: sources wider than the slot were trimmed at the sides, taller
+ones trimmed top/bottom with a 25% upward bias so heads survive.
+
+### Known limitation — only 5 distinct scenes for 6 slots
+Of the 7 photos in `images/`, `64619`/`64640` and `3486`/`3444` are near-duplicate frames of
+the same two moments, so the batch holds **5 distinct scenes**, and 4 of them already appear
+in the reels section higher up the same page. Some repetition was therefore unavoidable and
+the client was told so before proceeding.
+
+Mitigations applied:
+- Only **one** member of the `64619`/`64640` pair is used in the gallery (`64640`); `64619`
+  stays exclusive to the reels.
+- Both members of the `3486`/`3444` pair are used (slots 5 and 6), so `gallery-6` was given a
+  **1.35× tighter crop** to read as its own photograph rather than a duplicate of slot 5.
+- Nothing in the batch actually depicts an alumni gathering or a Finacle/systems lab; the
+  nearest-fitting scenes were used and the captions left untouched.
+
+### Files changed
+- **Added** `public/assets/campus/gallery-{1..6}-*.jpg` (6 files, 1200×624)
+- **Modified** `src/data/mockData.ts` — only `image` and `fileName` on the 6
+  `STUDENT_COMMUNITY_GALLERY` entries. Captions, tags, ids and `fallbackImage` untouched.
+- The old stock files under `public/assets/drills/` and `public/assets/classroom/` were left
+  in place (nothing else references them, but they are harmless and reverting is trivial).
+
+### Verification
+- `npm run lint` passes; `npm run build` succeeds with all 6 campus files in `dist/`
+- Browser: all 6 load at 1200×624; the Success Stories page reports **0 Unsplash images and
+  0 broken images** across the whole page
+- Screenshots: `verification-screenshots/before/campus-life-gallery-BEFORE.png`,
+  `after/campus-life-gallery-AFTER.png`, `after/campus-life-gallery-mobile-AFTER.png`
+
+---
