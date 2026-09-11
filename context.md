@@ -325,3 +325,65 @@ does for the other four students without flyers. It should be replaced as soon a
 Gupta's actual flyer is supplied.
 
 ---
+## 2026-09-11 — Final 5 student photos (all 24 now on real flyer headshots)
+
+### Request
+Client sent a second flyer batch (`mokkamamma-attachments (1)/`) covering the five students
+who had no flyer, with one explicit override: *"use ashwini kumar for Govind Trivedi, rest
+align with respective names."*
+
+### Flyers received (5)
+`516.png` was **byte-identical** (md5 `b35aa905…`) to the `516.png` already in the first
+batch — re-sent deliberately so it could be used for Govind Trivedi. The other four were new
+and were copied into `mokkamamma-attachments/` (now 24 flyers archived).
+
+| Flyer | Name on flyer | Role / bank on flyer | Applied to |
+| --- | --- | --- | --- |
+| 499.png | Gaurav Jaisawal | Phone Banker · HDB Financial Services | story-gaurav-jaisawal |
+| 503.png | Priya Prajapati | Officer · HDFC Bank | story-priya-prajapati |
+| 512.png | Lovely Gupta | CRM · Indiabulls Home Loans | story-lovely-gupta |
+| 513.png | Saurabh Mishra | Officer · HDFC Bank | story-saurabh-mishra |
+| 516.png | **Ashwini Kumar** | Officer · HDFC Bank | **story-govind-trivedi** (client override) |
+
+Three of the five (Gaurav Jaisawal, Priya Prajapati, Saurabh Mishra) match the site copy
+exactly on name, role **and** bank.
+
+### Method
+Identical to the first batch: the same detector locates the passport photo on the flyer,
+crops it square with an 18% upward bias, and writes 600×600 JPEG to
+`public/assets/students/<slug>.jpg`. All five resolved at the base threshold (238) — no
+white-backdrop escalation needed. Crops were reviewed on a contact sheet before wiring up.
+
+### ⚠️ Govind Trivedi and Ashwini Kumar now share one photo
+Because `516.png` is the source for both, `ashwini-kumar.jpg` and `govind-trivedi.jpg` are
+the **same file** (md5 `4c4277ba…`). The same face therefore appears on two cards:
+Ashwini Kumar (Assistant Manager, Kotak Mahindra) and Govind Trivedi (Junior Associate,
+State Bank of India). Done exactly as instructed and flagged back to the client — if a
+distinct photo of Govind Trivedi exists, it should replace this.
+
+### Bank discrepancies — site copy still NOT changed
+Two more added to the running list (now 6 total, see `photo-mapping.md`):
+- **Lovely Gupta** — site: HDFC Bank / Officer · flyer: Indiabulls Home Loans / CRM
+- **Govind Trivedi** — site: State Bank of India / Junior Associate · flyer used is Ashwini
+  Kumar's (HDFC Bank / Officer), which is expected given the override
+
+### Files changed
+- **Added** 4 flyers to `mokkamamma-attachments/` (499, 503, 512, 513)
+- **Added/updated** 5 files in `public/assets/students/` — `lovely-gupta.jpg` overwrites
+  nothing (she was on a stock URL); the other four are new
+- **Modified** `src/data/mockData.ts` — only the `studentPhoto` field of those 5 entries
+
+### Verification
+- Cross-check over all 24 stories: **24 local photos, 0 stock, 0 missing files**, every
+  filename slug matching its `studentName`
+- `npm run lint` passes; `npm run build` succeeds with all **24** headshots in `dist/`
+- Browser: the 5 cards load at 600×600, **0 unsplash images and 0 broken images** remain on
+  the Success Stories page (previously 5 stock, and earlier 1 broken)
+- Screenshots: `verification-screenshots/before/final5-students-BEFORE.png`,
+  `after/final5-students-AFTER.png`, `after/govind-trivedi-card-AFTER.png`
+
+### Note
+`photo-1567532939604-b6b5b0db2604`, the Unsplash placeholder picked for Lovely Gupta on
+2026-09-11, is now unused — her real flyer replaced it as intended.
+
+---

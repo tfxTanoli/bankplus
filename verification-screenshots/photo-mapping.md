@@ -35,17 +35,28 @@ The passport photo was then cropped out of the flyer and saved as the student's
 | --- | --- | --- |
 | 518.png | **Anjani Sharma** (Officer, HDFC Bank) | No `SUCCESS_STORIES` entry carries this name. Left unused rather than forced onto an unrelated student. |
 
-## Stories with no flyer supplied (5) — still on stock photos
+## Second batch — 2026-09-11 (the final 5)
 
-`Priya Prajapati`, `Gaurav Jaisawal`, `Saurabh Mishra`, `Lovely Gupta`, `Govind Trivedi`.
+| Flyer | Name on flyer | Role / Bank on flyer | Story id | Saved as |
+| --- | --- | --- | --- | --- |
+| 499.png | Gaurav Jaisawal | Phone Banker · HDB Financial Services | story-gaurav-jaisawal | gaurav-jaisawal.jpg |
+| 503.png | Priya Prajapati | Officer · HDFC Bank | story-priya-prajapati | priya-prajapati.jpg |
+| 512.png | Lovely Gupta | CRM · Indiabulls Home Loans | story-lovely-gupta | lovely-gupta.jpg |
+| 513.png | Saurabh Mishra | Officer · HDFC Bank | story-saurabh-mishra | saurabh-mishra.jpg |
+| 516.png | **Ashwini Kumar** | Officer · HDFC Bank | **story-govind-trivedi** | govind-trivedi.jpg |
 
-Please send flyers for these five and they will be dropped in the same way.
+**All 24 success stories now carry a real flyer headshot. No stock placeholders remain.**
 
-**Lovely Gupta** — her original stock URL (`photo-1534751516642-a1714f5a5467`) was dead and
-rendered as a broken image. Replaced with `photo-1567532939604-b6b5b0db2604`, a working
-head-and-shoulders portrait on a neutral background that matches the framing of the real
-flyer headshots. This is a **placeholder**, not her photo — it should be swapped the moment
-her flyer arrives.
+### ⚠️ Govind Trivedi uses the Ashwini Kumar flyer — by client instruction
+
+The client's 2026-09-11 message said: *"use ashwini kumar for Govind Trivedi, rest align with
+respective names."* `516.png` was re-sent in the second batch and is **byte-identical**
+(md5 `b35aa905…`) to the `516.png` already used for `story-ashwini-kumar`.
+
+Consequence: **`ashwini-kumar.jpg` and `govind-trivedi.jpg` are the same image** (md5
+`4c4277ba…`), so the same face now appears on two cards — Ashwini Kumar (Assistant Manager,
+Kotak Mahindra) and Govind Trivedi (Junior Associate, State Bank of India). This was done
+exactly as instructed, but if a distinct photo of Govind Trivedi exists it should replace it.
 
 ## Bank differs between flyer and site copy (4)
 
@@ -59,3 +70,5 @@ correct and it will be corrected.
 | Sashi Sharma | Axis Bank | HDFC Bank |
 | Ashwini Kumar | Kotak Mahindra Bank | HDFC Bank |
 | Gopi Chand | HDB Financial Services | HDFC Bank |
+| Lovely Gupta | HDFC Bank (Officer) | Indiabulls Home Loans (CRM) |
+| Govind Trivedi | State Bank of India (Junior Associate) | flyer used is Ashwini Kumar's: HDFC Bank (Officer) |

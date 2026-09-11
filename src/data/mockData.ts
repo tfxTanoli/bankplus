@@ -505,7 +505,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-priya-prajapati',
     studentName: 'Priya Prajapati',
-    studentPhoto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/priya-prajapati.jpg',
     hiredBank: 'HDFC Bank',
     bankLogo: 'HDFC',
     bankColor: '#004B87',
@@ -545,7 +545,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-gaurav-jaisawal',
     studentName: 'Gaurav Jaisawal',
-    studentPhoto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/gaurav-jaisawal.jpg',
     hiredBank: 'HDB Financial Services',
     bankLogo: 'HDB',
     bankColor: '#004B87',
@@ -705,7 +705,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-saurabh-mishra',
     studentName: 'Saurabh Mishra',
-    studentPhoto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/saurabh-mishra.jpg',
     hiredBank: 'HDFC Bank',
     bankLogo: 'HDFC',
     bankColor: '#004B87',
@@ -744,7 +744,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-lovely-gupta',
     studentName: 'Lovely Gupta',
-    studentPhoto: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/lovely-gupta.jpg',
     hiredBank: 'HDFC Bank',
     bankLogo: 'HDFC',
     bankColor: '#004B87',
@@ -839,7 +839,7 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
   {
     id: 'story-govind-trivedi',
     studentName: 'Govind Trivedi',
-    studentPhoto: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=450&auto=format&fit=crop&q=80',
+    studentPhoto: '/assets/students/govind-trivedi.jpg',
     hiredBank: 'State Bank of India',
     bankLogo: 'SBI',
     bankColor: '#002B7F',
