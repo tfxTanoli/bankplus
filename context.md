@@ -700,3 +700,36 @@ stored links, so that key was **not** changed and uploads survive.
   old UI. Git history also still contains the old code; rewriting it was not requested.
 
 ---
+## 2026-09-25 — Vercel deploy of `6082d2a` failed at `bunx bun@1.4.2 install`
+
+### Symptom
+The build log stops at `Resolved, downloaded and extracted [30]` → `Saved lockfile` →
+`Error: Command "bunx bun@1.4.2 install" exited with 1`, with no error text. `6082d2a`
+touched no dependency files. `package.json`, `bun.lock` and `vercel.json` are byte-identical
+to `c1cd5a1`, and every deploy from `0840098` to `c1cd5a1` succeeded (GitHub commit statuses).
+
+### Finding: `bun.lock` was out of sync with `package.json`
+`0840098` removed the duplicate `vite` from `devDependencies`, but Bun was not installed
+here, so `bun.lock` kept `"vite": "^6.2.3"` in its `devDependencies` block (noted at the
+time in the 2026-09-10 entry). Every Vercel install has therefore rewritten the lockfile
+(`Saved lockfile`), and that rewrite is exactly where this build exits.
+
+### Fix
+Ran `bun@1.4.2 install` (via `npx`) on a clean clone of `6082d2a` and committed the result:
+**one line removed** from `bun.lock`, and no package versions changed. A follow-up
+`bun install --frozen-lockfile` then reports `Checked 231 installs across 342 packages
+(no changes)`, so Vercel no longer has to rewrite the lockfile.
+
+`--frozen-lockfile` was not added to `vercel.json` in this change, to keep it to one variable.
+With the lockfile now in sync, it is safe to add later as a hardening step.
+
+### If a deploy still fails at install
+The other variable is Vercel's **restored build cache** (`Restored build cache from previous
+deployment`), taken from a deployment two weeks older. Redeploy with **"Use existing Build
+Cache" unchecked**, or set `VERCEL_FORCE_NO_BUILD_CACHE=1` in Project Settings →
+Environment Variables.
+
+### Verification
+- Clean clone, `bun@1.4.2 install`: exit 0, 215 packages. Frozen re-install: exit 0, no changes.
+
+---
