@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { JobPosting } from '../types';
-import { JOB_POSTINGS, WHATSAPP_CHANNELS, OFFICIAL_INSTAGRAM, OFFICIAL_INSTAGRAM_HANDLE } from '../data/mockData';
+import { JOB_POSTINGS, WHATSAPP_CHANNELS, OFFICIAL_FACEBOOK, OFFICIAL_FACEBOOK_HANDLE } from '../data/mockData';
 import { getMergedCampusLifeList, CAMPUS_LIFE_UPDATED_EVENT, CustomCampusLifeItem } from '../utils/campusLifeSectionStorage';
 import { 
   Briefcase, 
@@ -19,7 +19,7 @@ import {
   ArrowRight,
   ShieldCheck,
   Check,
-  Instagram
+  Facebook
 } from 'lucide-react';
 
 interface JobsViewProps {
@@ -411,13 +411,13 @@ export const JobsView: React.FC<JobsViewProps> = ({
             </h3>
           </div>
           <a
-            href={OFFICIAL_INSTAGRAM}
+            href={OFFICIAL_FACEBOOK}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-bold text-pink-700 hover:text-pink-800 flex items-center gap-1"
+            className="text-xs font-bold text-blue-700 hover:text-blue-800 flex items-center gap-1"
           >
-            <Instagram className="w-4 h-4 text-pink-600" />
-            <span>See Freshers on {OFFICIAL_INSTAGRAM_HANDLE}</span>
+            <Facebook className="w-4 h-4 text-[#1877F2]" />
+            <span>See Freshers on {OFFICIAL_FACEBOOK_HANDLE}</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>

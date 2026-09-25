@@ -12,9 +12,9 @@ import {
   OFFICIAL_ALC_WHATSAPP_RAW,
   OFFICIAL_CONTACT_PHONE,
   OFFICIAL_CONTACT_PHONE_RAW,
-  OFFICIAL_INSTAGRAM,
-  OFFICIAL_INSTAGRAM_HANDLE,
-  INSTAGRAM_STUDENT_REELS,
+  OFFICIAL_FACEBOOK,
+  OFFICIAL_FACEBOOK_HANDLE,
+  FACEBOOK_STUDENT_REELS,
   STUDENT_COMMUNITY_GALLERY,
   SELECTION_GUARANTEE_STATEMENT,
   PLAY_STORE_APP_NAME,
@@ -62,7 +62,7 @@ import {
   Clock,
   Compass,
   Zap,
-  Instagram,
+  Facebook,
   Play,
   ExternalLink,
   Smartphone,
@@ -698,25 +698,25 @@ export const HomeView: React.FC<HomeViewProps> = ({
           <div className="space-y-1">
             <span className="text-xs font-black text-[#003399] uppercase tracking-wider flex items-center gap-1.5">
               <Award className="w-3.5 h-3.5 text-[#003399]" />
-              <span>Official Wall of Fame • @bankplus_learning</span>
+              <span>Official Wall of Fame • {OFFICIAL_FACEBOOK_HANDLE}</span>
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-[#001f5c]">
               Real Students. Verified Placements.
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm">
-              Over <strong>3,000+ Banking Careers created</strong> across prestigious public and private banks. Authentic selection flyers direct from our Instagram.
+              Over <strong>3,000+ Banking Careers created</strong> across prestigious public and private banks. Authentic selection flyers direct from our Facebook page.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href={OFFICIAL_INSTAGRAM}
+              href={OFFICIAL_FACEBOOK}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-pink-50 border border-pink-200 text-pink-700 hover:bg-pink-100 font-black text-xs transition-colors flex items-center gap-1.5 shadow-2xs"
+              className="px-4 py-2.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 hover:bg-blue-100 font-black text-xs transition-colors flex items-center gap-1.5 shadow-2xs"
             >
-              <Instagram className="w-4 h-4 text-pink-600" />
-              <span>Follow @bankplus_learning</span>
+              <Facebook className="w-4 h-4 text-[#1877F2]" />
+              <span>Follow {OFFICIAL_FACEBOOK_HANDLE}</span>
             </a>
             <button
               onClick={() => setActiveTab('stories')}
@@ -740,12 +740,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
           ))}
         </div>
 
-        {/* Instagram Student Video Reels Showcase */}
+        {/* Facebook Student Video Reels Showcase */}
         <div className="pt-6 space-y-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
             <div>
-              <span className="text-xs font-bold text-pink-600 uppercase tracking-wider flex items-center gap-1.5">
-                <Instagram className="w-3.5 h-3.5" />
+              <span className="text-xs font-bold text-[#1877F2] uppercase tracking-wider flex items-center gap-1.5">
+                <Facebook className="w-3.5 h-3.5" />
                 <span>{reelsText.eyebrow}</span>
               </span>
               <h3 className="text-lg font-black text-slate-900">
@@ -754,10 +754,10 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </div>
             <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
               <a
-                href={reelsText.buttonLink || OFFICIAL_INSTAGRAM}
+                href={reelsText.buttonLink || OFFICIAL_FACEBOOK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-pink-700 hover:text-pink-800 flex items-center gap-1 bg-pink-50 hover:bg-pink-100 border border-pink-200 px-3 py-1.5 rounded-xl transition-colors"
+                className="text-xs font-bold text-blue-700 hover:text-blue-800 flex items-center gap-1 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-3 py-1.5 rounded-xl transition-colors"
               >
                 <span>{reelsText.buttonText}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -772,7 +772,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               return (
                 <div
                   key={reel.id}
-                  className="bg-white rounded-xl overflow-hidden card-shadow border border-slate-200 hover:border-pink-400 group transition-all relative flex flex-col"
+                  className="bg-white rounded-xl overflow-hidden card-shadow border border-slate-200 hover:border-[#1877F2] group transition-all relative flex flex-col"
                 >
                   <div className="relative aspect-9/12 bg-slate-900 overflow-hidden">
                     <img 
@@ -784,7 +784,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40"></div>
 
                     <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between text-white text-[10px] z-10">
-                      <span className="bg-pink-600 px-2 py-0.5 rounded-full font-bold">
+                      <span className="bg-[#1877F2] px-2 py-0.5 rounded-full font-bold">
                         Reel
                       </span>
                       <span className="bg-slate-900/80 px-2 py-0.5 rounded-full font-mono">
@@ -793,12 +793,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     </div>
 
                     <a
-                      href={reel.instagramLink}
+                      href={reel.facebookLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="absolute inset-0 flex items-center justify-center cursor-pointer"
                     >
-                      <div className="w-10 h-10 rounded-full bg-white/90 text-pink-600 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-pink-600 group-hover:text-white transition-all">
+                      <div className="w-10 h-10 rounded-full bg-white/90 text-[#1877F2] flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-[#1877F2] group-hover:text-white transition-all">
                         <Play className="w-4 h-4 fill-current ml-0.5" />
                       </div>
                     </a>

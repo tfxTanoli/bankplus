@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Download, Copy, Check, X, ShieldAlert, Sparkles, Image as ImageIcon } from 'lucide-react';
+import { TEXT_STORAGE_KEY as REELS_TEXT_STORAGE_KEY } from '../utils/reelsSectionStorage';
 
 interface ExportSyncModalProps {
   isOpen: boolean;
@@ -30,7 +31,7 @@ export const ExportSyncModal: React.FC<ExportSyncModalProps> = ({ isOpen, onClos
       studentPhotos: JSON.parse(localStorage.getItem('bankplus_student_custom_photos_v2') || '{}'),
       drillClassroomPhotos: JSON.parse(localStorage.getItem('bankplus_drill_classroom_photos') || '{}'),
       reelsItems: JSON.parse(localStorage.getItem('bankplus_reels_custom_items_v1') || '[]'),
-      reelsText: JSON.parse(localStorage.getItem('bankplus_reels_section_text_v1') || '{}'),
+      reelsText: JSON.parse(localStorage.getItem(REELS_TEXT_STORAGE_KEY) || '{}'),
       campusLifeItems: JSON.parse(localStorage.getItem('bankplus_campus_life_items_v1') || '[]'),
       campusLifeText: JSON.parse(localStorage.getItem('bankplus_campus_life_section_text_v1') || '{}'),
       customLogo: localStorage.getItem('bankplus_custom_logo_data') || null,

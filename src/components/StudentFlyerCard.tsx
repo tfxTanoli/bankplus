@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { StudentSuccessStory } from '../types';
 import { BankPlusLogo } from './BankPlusLogo';
 import { BankLogoBadge } from './BankLogoBadge';
-import { Instagram, CheckCircle2, Award, ExternalLink, ArrowRight, MapPin, Sparkles, Camera, Upload } from 'lucide-react';
-import { OFFICIAL_INSTAGRAM, OFFICIAL_INSTAGRAM_HANDLE } from '../data/mockData';
+import { Facebook, CheckCircle2, Award, ExternalLink, ArrowRight, MapPin, Sparkles, Camera, Upload } from 'lucide-react';
+import { OFFICIAL_FACEBOOK, OFFICIAL_FACEBOOK_HANDLE } from '../data/mockData';
 import { getCustomPhoto, saveCustomPhoto, compressImage } from '../utils/photoStorage';
 
 interface StudentFlyerCardProps {
   story: StudentSuccessStory;
   onOpenStory?: (story: StudentSuccessStory) => void;
-  variant?: 'poster' | 'card'; // 'poster' matches the uploaded Instagram flyer format, 'card' is executive list
+  variant?: 'poster' | 'card'; // 'poster' matches the official selection flyer format, 'card' is executive list
   className?: string;
 }
 
@@ -71,17 +71,17 @@ export const StudentFlyerCard: React.FC<StudentFlyerCardProps> = ({
         className={`bg-white rounded-2xl overflow-hidden card-shadow border border-slate-200 hover:border-[#003399] transition-all flex flex-col justify-between group ${className}`}
       >
         <div className="p-5 space-y-4">
-          {/* Header Row: Bank Badge & Instagram Verified */}
+          {/* Header Row: Bank Badge & Facebook Verified */}
           <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
             <BankLogoBadge bankCode={story.bankLogo} bankName={story.hiredBank} size="sm" />
             <a 
-              href={story.instagramUrl || OFFICIAL_INSTAGRAM} 
+              href={story.facebookUrl || OFFICIAL_FACEBOOK} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[10px] font-bold text-pink-600 bg-pink-50 hover:bg-pink-100 px-2 py-0.5 rounded-full border border-pink-200/80 transition-colors"
-              title="Verified on Instagram @bankplus_learning"
+              className="inline-flex items-center gap-1 text-[10px] font-bold text-[#1877F2] bg-blue-50 hover:bg-blue-100 px-2 py-0.5 rounded-full border border-blue-200/80 transition-colors"
+              title={`Verified on Facebook ${OFFICIAL_FACEBOOK_HANDLE}`}
             >
-              <Instagram className="w-3 h-3" />
+              <Facebook className="w-3 h-3" />
               <span>Verified</span>
             </a>
           </div>
@@ -192,19 +192,19 @@ export const StudentFlyerCard: React.FC<StudentFlyerCardProps> = ({
           />
         </svg>
 
-        {/* 1. FLYER HEADER: BankPlus Logo + Instagram Verified Badge */}
+        {/* 1. FLYER HEADER: BankPlus Logo + Facebook Verified Badge */}
         <div className="relative z-10 flex items-center justify-between gap-2 border-b border-blue-100/60 pb-2.5">
           <BankPlusLogo variant="light" size="sm" showTagline={true} />
           
           <a
-            href={story.instagramUrl || OFFICIAL_INSTAGRAM}
+            href={story.facebookUrl || OFFICIAL_FACEBOOK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 text-white font-bold text-[10px] shadow-2xs hover:scale-105 transition-transform"
-            title="Verified Student Selection on @bankplus_learning Instagram"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1877F2] text-white font-bold text-[10px] shadow-2xs hover:scale-105 transition-transform"
+            title={`Verified Student Selection on ${OFFICIAL_FACEBOOK_HANDLE} Facebook`}
           >
-            <Instagram className="w-3 h-3" />
-            <span className="hidden sm:inline">Instagram</span>
+            <Facebook className="w-3 h-3" />
+            <span className="hidden sm:inline">Facebook</span>
             <span>Verified</span>
           </a>
         </div>
@@ -303,7 +303,7 @@ export const StudentFlyerCard: React.FC<StudentFlyerCardProps> = ({
           &ldquo;{story.shortQuote}&rdquo;
         </p>
 
-        {/* Action Buttons: Modal view + Instagram Link */}
+        {/* Action Buttons: Modal view + Facebook Link */}
         <div className="pt-1 flex items-center gap-2">
           <button
             onClick={() => onOpenStory && onOpenStory(story)}
@@ -313,13 +313,13 @@ export const StudentFlyerCard: React.FC<StudentFlyerCardProps> = ({
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
           <a
-            href={story.instagramUrl || OFFICIAL_INSTAGRAM}
+            href={story.facebookUrl || OFFICIAL_FACEBOOK}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-600 border border-pink-200 transition-colors shrink-0"
-            title="Open on official Instagram @bankplus_learning"
+            className="p-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#1877F2] border border-blue-200 transition-colors shrink-0"
+            title={`Open on official Facebook ${OFFICIAL_FACEBOOK_HANDLE}`}
           >
-            <Instagram className="w-4 h-4" />
+            <Facebook className="w-4 h-4" />
           </a>
         </div>
       </div>

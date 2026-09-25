@@ -12,8 +12,8 @@ import {
   ALC_OPEN_NOW_LIST,
   ALC_COMING_SOON_LIST,
   STUDENT_COMMUNITY_GALLERY,
-  OFFICIAL_INSTAGRAM,
-  OFFICIAL_INSTAGRAM_HANDLE
+  OFFICIAL_FACEBOOK,
+  OFFICIAL_FACEBOOK_HANDLE
 } from '../data/mockData';
 import {
   getMergedCampusLifeList,
@@ -31,7 +31,7 @@ import {
   Sparkles, 
   MessageCircle,
   Briefcase,
-  Instagram,
+  Facebook,
   ExternalLink,
   GraduationCap,
   Mail
@@ -479,13 +479,13 @@ export const CentresView: React.FC<CentresViewProps> = () => {
 
           <div className="flex items-center gap-2 flex-wrap shrink-0">
             <a
-              href={OFFICIAL_INSTAGRAM}
+              href={OFFICIAL_FACEBOOK}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-700 text-xs font-bold flex items-center gap-1.5 border border-pink-200 transition-colors"
+              className="px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold flex items-center gap-1.5 border border-blue-200 transition-colors"
             >
-              <Instagram className="w-4 h-4" />
-              <span>{OFFICIAL_INSTAGRAM_HANDLE}</span>
+              <Facebook className="w-4 h-4" />
+              <span>{OFFICIAL_FACEBOOK_HANDLE}</span>
               <ExternalLink className="w-3 h-3 ml-0.5" />
             </a>
           </div>

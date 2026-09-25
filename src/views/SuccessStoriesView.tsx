@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { StudentSuccessStory } from '../types';
 import { 
-  OFFICIAL_INSTAGRAM,
-  OFFICIAL_INSTAGRAM_HANDLE,
+  OFFICIAL_FACEBOOK,
+  OFFICIAL_FACEBOOK_HANDLE,
   OFFICIAL_COURSE_WHATSAPP,
   OFFICIAL_COURSE_WHATSAPP_RAW
 } from '../data/mockData';
@@ -24,7 +24,7 @@ import {
 import { 
   Award, 
   Play, 
-  Instagram, 
+  Facebook, 
   MessageCircle,
   ExternalLink,
   Users,
@@ -85,19 +85,19 @@ export const SuccessStoriesView: React.FC<SuccessStoriesViewProps> = ({
           Real Students. Verified Placements.
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-          From non-commerce degrees and Tier-2/3 hometowns to respectable branch officers, assistant managers, and credit underwriters across India. Explore authentic selection flyers from our official Instagram feed.
+          From non-commerce degrees and Tier-2/3 hometowns to respectable branch officers, assistant managers, and credit underwriters across India. Explore authentic selection flyers from our official Facebook page.
         </p>
 
-        {/* Official Instagram Share Link Callout */}
+        {/* Official Facebook Share Link Callout */}
         <div className="flex justify-center pt-2">
           <a
-            href={OFFICIAL_INSTAGRAM}
+            href={OFFICIAL_FACEBOOK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:opacity-95 text-white font-black text-xs sm:text-sm shadow-md transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#1877F2] hover:bg-[#166FE5] text-white font-black text-xs sm:text-sm shadow-md transition-all hover:scale-105"
           >
-            <Instagram className="w-4 h-4 text-white" />
-            <span>Follow {OFFICIAL_INSTAGRAM_HANDLE} on Instagram for Daily Stories</span>
+            <Facebook className="w-4 h-4 text-white" />
+            <span>Follow {OFFICIAL_FACEBOOK_HANDLE} on Facebook for Daily Stories</span>
             <ExternalLink className="w-3.5 h-3.5 ml-0.5" />
           </a>
         </div>
@@ -152,16 +152,16 @@ export const SuccessStoriesView: React.FC<SuccessStoriesViewProps> = ({
         </a>
       </div>
 
-      {/* 3. VERIFIED STUDENT WALL OF FAME COMPONENT (Grid with Instagram Flyers & CTA) */}
+      {/* 3. VERIFIED STUDENT WALL OF FAME COMPONENT (Grid with Facebook Flyers & CTA) */}
       <WallOfFame onOpenStory={onOpenStory} />
 
-      {/* 4. INSTAGRAM REELS & VIDEO SELECTION STORIES */}
+      {/* 4. FACEBOOK REELS & VIDEO SELECTION STORIES */}
       <section className="space-y-6 pt-6 relative" id="student-reels-section">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200 pb-4">
           <div className="grow">
             <div className="group relative">
-              <div className="inline-flex items-center gap-1.5 text-xs font-black text-pink-600 uppercase tracking-wider mb-1">
-                <Instagram className="w-4 h-4" />
+              <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#1877F2] uppercase tracking-wider mb-1">
+                <Facebook className="w-4 h-4" />
                 <span>{reelsText.eyebrow}</span>
               </div>
               <h2 className="text-2xl font-black text-slate-900">
@@ -175,12 +175,12 @@ export const SuccessStoriesView: React.FC<SuccessStoriesViewProps> = ({
 
           <div className="flex items-center gap-2 flex-wrap shrink-0">
             <a
-              href={reelsText.buttonLink || OFFICIAL_INSTAGRAM}
+              href={reelsText.buttonLink || OFFICIAL_FACEBOOK}
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-1.5 transition-colors shrink-0 shadow-xs"
             >
-              <Instagram className="w-4 h-4 text-pink-400" />
+              <Facebook className="w-4 h-4 text-blue-400" />
               <span>{reelsText.buttonText}</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
@@ -192,7 +192,7 @@ export const SuccessStoriesView: React.FC<SuccessStoriesViewProps> = ({
             return (
               <div
                 key={reel.id}
-                className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-200 hover:border-pink-500 transition-all flex flex-col justify-between relative group"
+                className="bg-white rounded-2xl overflow-hidden card-shadow border border-slate-200 hover:border-[#1877F2] transition-all flex flex-col justify-between relative group"
               >
                 <div className="relative aspect-9/14 bg-slate-900 overflow-hidden">
                   <img 
@@ -210,8 +210,8 @@ export const SuccessStoriesView: React.FC<SuccessStoriesViewProps> = ({
 
                   {/* Top Badge */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-white text-[11px] z-20">
-                    <span className="bg-pink-600/90 px-2 py-0.5 rounded-full font-bold flex items-center gap-1 shadow-xs">
-                      <Instagram className="w-3 h-3" />
+                    <span className="bg-[#1877F2]/90 px-2 py-0.5 rounded-full font-bold flex items-center gap-1 shadow-xs">
+                      <Facebook className="w-3 h-3" />
                       <span>Reel</span>
                     </span>
 
@@ -222,12 +222,12 @@ export const SuccessStoriesView: React.FC<SuccessStoriesViewProps> = ({
 
                   {/* Center Play Icon */}
                   <a 
-                    href={reel.instagramLink}
+                    href={reel.facebookLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="absolute inset-0 flex items-center justify-center cursor-pointer z-10"
                   >
-                    <div className="w-12 h-12 rounded-full bg-white/90 text-pink-600 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-pink-600 group-hover:text-white transition-all">
+                    <div className="w-12 h-12 rounded-full bg-white/90 text-[#1877F2] flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-[#1877F2] group-hover:text-white transition-all">
                       <Play className="w-5 h-5 fill-current ml-0.5" />
                     </div>
                   </a>
@@ -235,7 +235,7 @@ export const SuccessStoriesView: React.FC<SuccessStoriesViewProps> = ({
                   {/* Bottom Overlay Text */}
                   <div className="absolute bottom-3 left-3 right-3 text-white space-y-1 pointer-events-none z-20">
                     <span className="text-[10px] text-emerald-400 font-bold block">
-                      {reel.views} views on Instagram
+                      {reel.views} views on Facebook
                     </span>
                     <h4 className="text-xs font-black line-clamp-2 text-white">
                       {reel.title}
@@ -277,13 +277,13 @@ export const SuccessStoriesView: React.FC<SuccessStoriesViewProps> = ({
 
           <div className="flex items-center gap-2 flex-wrap shrink-0">
             <a
-              href={OFFICIAL_INSTAGRAM}
+              href={OFFICIAL_FACEBOOK}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-700 text-xs font-bold flex items-center gap-1.5 border border-pink-200 transition-colors"
+              className="px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold flex items-center gap-1.5 border border-blue-200 transition-colors"
             >
-              <Instagram className="w-4 h-4" />
-              <span>{OFFICIAL_INSTAGRAM_HANDLE}</span>
+              <Facebook className="w-4 h-4" />
+              <span>{OFFICIAL_FACEBOOK_HANDLE}</span>
               <ExternalLink className="w-3 h-3 ml-0.5" />
             </a>
           </div>
@@ -348,13 +348,13 @@ export const SuccessStoriesView: React.FC<SuccessStoriesViewProps> = ({
             <span>WhatsApp Admissions: {OFFICIAL_COURSE_WHATSAPP}</span>
           </a>
           <a
-            href={OFFICIAL_INSTAGRAM}
+            href={OFFICIAL_FACEBOOK}
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm rounded-xl transition-colors flex items-center gap-2"
           >
-            <Instagram className="w-4 h-4" />
-            <span>Follow {OFFICIAL_INSTAGRAM_HANDLE}</span>
+            <Facebook className="w-4 h-4" />
+            <span>Follow {OFFICIAL_FACEBOOK_HANDLE}</span>
           </a>
         </div>
       </div>

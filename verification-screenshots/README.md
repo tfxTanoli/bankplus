@@ -17,7 +17,7 @@ Flyer→student mapping table: **`photo-mapping.md`**
 The row2 pair is the clearest check: each card shows the name, role and bank directly under
 the photo, so photo↔identity can be confirmed at a glance.
 
-## Instagram reels photos (2026-09-10)
+## Student reels photos (2026-09-10)
 
 | File | What it shows |
 | --- | --- |
@@ -28,3 +28,18 @@ the photo, so photo↔identity can be confirmed at a glance.
 
 All captured from `npm run dev` (localhost:3000) on a clean browser profile with empty
 localStorage, so they show the committed defaults rather than any locally uploaded photos.
+
+## Facebook as the official social channel (2026-09-25)
+
+| File | What it shows |
+| --- | --- |
+| `after/facebook-success-hero-AFTER.png` | Success Stories hero: Facebook follow button |
+| `after/facebook-wall-of-fame-banner-AFTER.png` | Wall of Fame top banner @1440px |
+| `after/facebook-wall-of-fame-banner-mobile-AFTER.png` | Same banner @390px |
+| `after/facebook-flyer-card-AFTER.png` | Flyer card: "Facebook Verified" badge + Facebook button |
+| `after/facebook-reels-section-AFTER.png` | Reels grid @1440px: badges, play buttons, view counts |
+| `after/facebook-reels-header-mobile-AFTER.png` | Reels header @390px |
+| `after/facebook-bottom-cta-AFTER.png` | Wall of Fame bottom call-to-action |
+| `after/facebook-footer-AFTER.png` | Footer: Facebook card, "Success Stories on Facebook", bottom-bar link |
+
+Captured on a clean profile with empty localStorage (committed defaults).

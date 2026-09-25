@@ -4,7 +4,7 @@ Running record of implementations. Updated after every change.
 
 ---
 
-## 2026-09-10 — Replace the 4 Instagram Reel photos on the Success Stories page
+## 2026-09-10 — Replace the 4 student Reel photos on the Success Stories page
 
 ### Request
 Client asked to replace the 4 photos in the reels grid on the Success Stories page with
@@ -15,12 +15,12 @@ from that folder. No other functionality was to be affected.
 ### Where these cards live
 | Concern | File |
 | --- | --- |
-| Card data (titles, quotes, thumbnails) | `src/data/mockData.ts` → `INSTAGRAM_STUDENT_REELS` (from line ~1069) |
+| Card data (titles, quotes, thumbnails) | `src/data/mockData.ts` → `FACEBOOK_STUDENT_REELS` (from line ~1069) |
 | Rendering | `src/views/SuccessStoriesView.tsx` → `#student-reels-section` |
 | Merge / override logic | `src/utils/reelsSectionStorage.ts` → `getMergedReelsList()` |
 | Admin editor for these cards | `src/components/ClassroomPhotoManagerModal.tsx` |
 
-The same `INSTAGRAM_STUDENT_REELS` array also feeds `HomeView.tsx`, so the new photos
+The same `FACEBOOK_STUDENT_REELS` array also feeds `HomeView.tsx`, so the new photos
 appear on the Home page reels strip too.
 
 ### Finding: the previous defaults were stock placeholders
@@ -54,7 +54,7 @@ So each photo was composed into a 900×1400 portrait canvas:
 - **foreground** — the *complete, uncropped* photo scaled to full canvas width, positioned at
   40% height so the card's bottom text gradient falls over blur instead of over faces
 
-This is the standard Instagram-reel letterbox treatment: nobody is cropped out, and the slot
+This is the standard vertical-reel letterbox treatment: nobody is cropped out, and the slot
 is filled edge to edge. Script used: `sharp` (already a `devDependency`); it was a one-off and
 the temporary script was removed after running.
 
@@ -67,8 +67,8 @@ the temporary script was removed after running.
 
 **Modified**:
 - `src/data/mockData.ts` — only the `thumbnail` and `fileName` fields of the four
-  `INSTAGRAM_STUDENT_REELS` entries. Titles, quotes, names, durations, view counts,
-  Instagram links and `fallbackThumbnail` values are all unchanged.
+  `FACEBOOK_STUDENT_REELS` entries. Titles, quotes, names, durations, view counts,
+  reel links and `fallbackThumbnail` values are all unchanged.
 
 ### What was deliberately left alone
 - The four original `IMG-2026*.jpg` files remain in place — `STUDENT_COMMUNITY_GALLERY`
@@ -188,7 +188,7 @@ nothing else may break.
 
 ### Key finding — the photo slot is a headshot, not a flyer
 `StudentFlyerCard.tsx` (poster variant) **recreates the BankPlus flyer in React**: it draws
-the BankPlus header, the decorative SVG curves, the Instagram-verified badge, and prints the
+the BankPlus header, the decorative SVG curves, the verified-channel badge, and prints the
 student's name, role and bank itself. `studentPhoto` feeds only a small **square** frame
 (`w-32 h-32 sm:w-36 sm:h-36`, `object-cover`).
 
@@ -619,5 +619,84 @@ mounted in `App.tsx`.
   section's existing spacing; no gap left behind, no horizontal overflow at 390px
 - Screenshots: `before/upload-panel-BEFORE.png`,
   `after/upload-panel-removed-AFTER.png`, `after/upload-panel-removed-mobile-AFTER.png`
+
+---
+## 2026-09-25 — Facebook replaces the previous social channel, site-wide
+
+### Request
+Client: remove the previous social channel's icon everywhere, add the Facebook icon in its
+place, link it to **https://www.facebook.com/bankpluslearning/**, and leave **no reference**
+to the old channel anywhere, without breaking anything else.
+
+### Single source of truth
+| Constant / field (`src/data/mockData.ts`, `src/types.ts`) | Value |
+| --- | --- |
+| `OFFICIAL_FACEBOOK` | `https://www.facebook.com/bankpluslearning/` |
+| `OFFICIAL_FACEBOOK_HANDLE` | `@bankpluslearning` (the page slug from the URL) |
+| `FACEBOOK_STUDENT_REELS` | the 4 reel cards (renamed; data otherwise unchanged) |
+| `StudentSuccessStory.facebookUrl` / `isFacebookVerified` | set on all 24 stories |
+| `StudentReel.facebookLink` | set on all 4 reels |
+
+Earlier entries in this log were updated to these current identifier names so they stay
+greppable, and their wording was neutralised.
+
+### What changed
+- **Icon**: `lucide-react` `Facebook` replaces the old icon at every call site (same package
+  and version, `0.546.0`; no new dependency).
+- **Copy**: every label, title/tooltip, placeholder, comment and hardcoded handle. Hardcoded
+  handle strings in `WallOfFame.tsx`, `HomeView.tsx` and `StudentFlyerCard.tsx` now render
+  `OFFICIAL_FACEBOOK_HANDLE` instead of a literal, so a future change is one line.
+- **Styling, only on the Facebook-linked elements**: the old purple→pink→rose brand gradient
+  and pink accents became Facebook blue `#1877F2` (hover `#166FE5`), with blue-50/100/200/700
+  chips for the light pills. On the top Wall of Fame banner (itself a blue gradient) the CTA
+  is a **white button with Facebook-blue text** so it does not blend into the background.
+  Pink used for unrelated things (ALC "Marketing Support" card, placement-alert label,
+  form asterisks, editor-modal chrome) was left alone.
+
+### Saved-text storage key bumped: `bankplus_reels_section_text_v1` → `_v2`
+Reels-section text saved through the (now unmounted) Reels editor overrides the defaults,
+and anything saved under v1 carries the old channel's wording and URL. Any browser holding
+it would have kept showing the old channel. `TEXT_STORAGE_KEY` is now exported, and
+`ExportSyncModal` imports it rather than hardcoding the string. Per-reel overrides
+(`bankplus_reels_custom_items_v1`: titles, names, roles, quotes, uploaded thumbnails) never
+stored links, so that key was **not** changed and uploads survive.
+
+### Files changed
+`src/data/mockData.ts`, `src/types.ts`, `src/utils/reelsSectionStorage.ts`,
+`src/components/{Footer,WallOfFame,StudentFlyerCard,ExportSyncModal,ReelsSectionEditorModal,ClassroomPhotoManagerModal}.tsx`,
+`src/views/{Home,Programs,Jobs,SuccessStories,Centres,ALCPartner}View.tsx`
+
+### Verification
+- `npm run lint` passes; `npm run build` succeeds. The built `dist/` contains **0** matches
+  for the old channel's name or handle, and all 8 new Facebook-blue utility classes are emitted.
+- Case-insensitive search of `src/`, `index.html`, `metadata.json`, `README.md` and all
+  docs: **0** matches for the old channel name or handle.
+- Six-tab browser audit on a clean profile, before vs after (1:1 on every tab):
+
+  | Tab | Social links | Icons | All anchors / buttons / images |
+  | --- | --- | --- | --- |
+  | Home | 15 → 15 FB | 11 → 11 | unchanged |
+  | Programs | 4 → 4 FB | 4 → 4 | unchanged |
+  | Jobs | 4 → 4 FB | 4 → 4 | unchanged |
+  | Success Stories | 61 → 61 FB | 64 → 64 | unchanged |
+  | Centres | 4 → 4 FB | 4 → 4 | unchanged |
+  | ALC Partner | 4 → 4 FB | 5 → 5 | unchanged |
+
+  Every Facebook link equals the client's URL exactly and opens in a new tab with
+  `rel="noopener noreferrer"`. 0 broken images. The page source has 0 matches for the old name.
+- Storage paths: stale v1 text is ignored; custom v2 text still overrides; a per-reel custom
+  title still applies; clearing storage restores defaults.
+- Regression, Success Stories: 24 cards → search "Aishwarya" 1 → cleared 24 → Axis Bank 4 →
+  reset 24; Executive view (24 "Verified" links, correct tooltip) ↔ Posters; the story modal
+  opens and closes.
+- 390px: no horizontal overflow on any tab, and no Facebook link runs off-screen. A fresh
+  load across all 6 tabs logged 0 console errors and 0 warnings.
+- Screenshots in `after/`: `facebook-success-hero`, `facebook-wall-of-fame-banner` (+`-mobile`),
+  `facebook-flyer-card`, `facebook-reels-section`, `facebook-reels-header-mobile`,
+  `facebook-bottom-cta`, `facebook-footer` (all `-AFTER.png`).
+
+### Not changed
+- Screenshots from earlier entries were left as historical evidence, so they still show the
+  old UI. Git history also still contains the old code; rewriting it was not requested.
 
 ---

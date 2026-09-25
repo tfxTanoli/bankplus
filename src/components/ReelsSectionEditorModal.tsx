@@ -6,7 +6,7 @@ import {
   RotateCcw, 
   CheckCircle2, 
   Sparkles, 
-  Instagram, 
+  Facebook, 
   Link as LinkIcon, 
   FileText, 
   Image as ImageIcon,
@@ -235,14 +235,14 @@ export const ReelsSectionEditorModal: React.FC<ReelsSectionEditorModalProps> = (
                     Eyebrow / Category Tag
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-pink-600">
-                      <Instagram className="w-4 h-4" />
+                    <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none text-[#1877F2]">
+                      <Facebook className="w-4 h-4" />
                     </div>
                     <input
                       type="text"
                       value={sectionText.eyebrow}
                       onChange={(e) => setSectionText(prev => ({ ...prev, eyebrow: e.target.value }))}
-                      placeholder="e.g. Direct From Official Instagram Reels"
+                      placeholder="e.g. Direct From Official Facebook Reels"
                       className="w-full pl-9 pr-3 py-2.5 text-sm bg-slate-50 border border-slate-300 rounded-xl font-bold text-slate-900 focus:outline-hidden focus:border-pink-500 focus:bg-white"
                     />
                   </div>
@@ -256,7 +256,7 @@ export const ReelsSectionEditorModal: React.FC<ReelsSectionEditorModalProps> = (
                     rows={2}
                     value={sectionText.heading}
                     onChange={(e) => setSectionText(prev => ({ ...prev, heading: e.target.value }))}
-                    placeholder="e.g. Selection Reactions & Speed Drills on @bankplus_learning"
+                    placeholder="e.g. Selection Reactions & Speed Drills on @bankpluslearning"
                     className="w-full p-3 text-sm bg-slate-50 border border-slate-300 rounded-xl font-black text-slate-900 focus:outline-hidden focus:border-[#003399] focus:bg-white"
                   />
                 </div>
@@ -283,20 +283,20 @@ export const ReelsSectionEditorModal: React.FC<ReelsSectionEditorModalProps> = (
                       type="text"
                       value={sectionText.buttonText}
                       onChange={(e) => setSectionText(prev => ({ ...prev, buttonText: e.target.value }))}
-                      placeholder="e.g. Watch All Reels on Instagram"
+                      placeholder="e.g. Watch All Reels on Facebook"
                       className="w-full px-3 py-2.5 text-sm bg-slate-50 border border-slate-300 rounded-xl font-bold text-slate-900 focus:outline-hidden focus:border-pink-500 focus:bg-white"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs font-black text-slate-700 uppercase tracking-wider mb-1.5">
-                      Instagram Profile URL
+                      Facebook Page URL
                     </label>
                     <input
                       type="url"
                       value={sectionText.buttonLink}
                       onChange={(e) => setSectionText(prev => ({ ...prev, buttonLink: e.target.value }))}
-                      placeholder="https://www.instagram.com/bankplus_learning/"
+                      placeholder="https://www.facebook.com/bankpluslearning/"
                       className="w-full px-3 py-2.5 text-sm bg-slate-50 border border-slate-300 rounded-xl text-slate-900 focus:outline-hidden focus:border-pink-500 focus:bg-white"
                     />
                   </div>
@@ -328,8 +328,8 @@ export const ReelsSectionEditorModal: React.FC<ReelsSectionEditorModalProps> = (
                 </span>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-200/80 pb-4">
                   <div>
-                    <div className="inline-flex items-center gap-1.5 text-xs font-black text-pink-600 uppercase tracking-wider mb-1">
-                      <Instagram className="w-4 h-4" />
+                    <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#1877F2] uppercase tracking-wider mb-1">
+                      <Facebook className="w-4 h-4" />
                       <span>{sectionText.eyebrow}</span>
                     </div>
                     <h2 className="text-xl sm:text-2xl font-black text-slate-900">
@@ -340,8 +340,8 @@ export const ReelsSectionEditorModal: React.FC<ReelsSectionEditorModalProps> = (
                     </p>
                   </div>
 
-                  <span className="px-4 py-2 rounded-xl bg-pink-50 text-pink-700 font-bold text-xs flex items-center gap-1.5 border border-pink-200 shrink-0">
-                    <Instagram className="w-4 h-4" />
+                  <span className="px-4 py-2 rounded-xl bg-blue-50 text-blue-700 font-bold text-xs flex items-center gap-1.5 border border-blue-200 shrink-0">
+                    <Facebook className="w-4 h-4" />
                     <span>{sectionText.buttonText}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </span>
@@ -401,12 +401,12 @@ export const ReelsSectionEditorModal: React.FC<ReelsSectionEditorModalProps> = (
                             className="w-full h-full object-cover"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
-                          <div className="absolute top-1.5 left-1.5 bg-pink-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md flex items-center gap-0.5">
-                            <Instagram className="w-2.5 h-2.5" />
+                          <div className="absolute top-1.5 left-1.5 bg-[#1877F2] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md flex items-center gap-0.5">
+                            <Facebook className="w-2.5 h-2.5" />
                             <span>{reel.duration}</span>
                           </div>
                           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div className="w-7 h-7 rounded-full bg-white/90 text-pink-600 flex items-center justify-center shadow-xs">
+                            <div className="w-7 h-7 rounded-full bg-white/90 text-[#1877F2] flex items-center justify-center shadow-xs">
                               <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                             </div>
                           </div>

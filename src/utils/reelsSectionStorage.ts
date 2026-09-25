@@ -1,7 +1,7 @@
-// Utility to manage custom Heading Text and Images for the Instagram Reels / Student Videos Section
+// Utility to manage custom Heading Text and Images for the Facebook Reels / Student Videos Section
 // Persists in localStorage and IndexedDB with cross-component event notification
 
-import { INSTAGRAM_STUDENT_REELS } from '../data/mockData';
+import { FACEBOOK_STUDENT_REELS } from '../data/mockData';
 import { compressImage, saveDrillClassroomPhoto, getDrillClassroomPhotos } from './photoStorage';
 
 export interface ReelsSectionText {
@@ -21,19 +21,21 @@ export interface CustomReelItem {
   thumbnail: string;
   duration: string;
   views: string;
-  instagramLink: string;
+  facebookLink: string;
   quote: string;
 }
 
 export const DEFAULT_REELS_SECTION_TEXT: ReelsSectionText = {
-  eyebrow: 'Direct From Official Instagram Reels',
-  heading: 'Selection Reactions & Interview Drives on @bankplus_learning',
+  eyebrow: 'Direct From Official Facebook Reels',
+  heading: 'Selection Reactions & Interview Drives on @bankpluslearning',
   subtitle: 'Watch authentic student reaction moments, mock interview simulations, and campus placement day ceremonies.',
-  buttonText: 'Watch All Reels on Instagram',
-  buttonLink: 'https://www.instagram.com/bankplus_learning/'
+  buttonText: 'Watch All Reels on Facebook',
+  buttonLink: 'https://www.facebook.com/bankpluslearning/'
 };
 
-const TEXT_STORAGE_KEY = 'bankplus_reels_section_text_v1';
+// v2: text saved under v1 carried the previous social channel's wording and link,
+// and saved text overrides the defaults above, so v1 is intentionally no longer read.
+export const TEXT_STORAGE_KEY = 'bankplus_reels_section_text_v2';
 const REELS_CUSTOM_ITEMS_KEY = 'bankplus_reels_custom_items_v1';
 export const REELS_SECTION_UPDATED_EVENT = 'bankplus_reels_section_updated';
 
@@ -103,7 +105,7 @@ export const getMergedReelsList = (): CustomReelItem[] => {
   const customItems = getCustomReelItems();
   const drillPhotos = getDrillClassroomPhotos();
 
-  return INSTAGRAM_STUDENT_REELS.map((defaultReel) => {
+  return FACEBOOK_STUDENT_REELS.map((defaultReel) => {
     const custom = customItems[defaultReel.id] || {};
     // Priority: custom reel thumbnail > drill classroom photo > default thumbnail
     const customThumbnail = custom.thumbnail || drillPhotos[`drill-${defaultReel.id}`] || defaultReel.thumbnail;

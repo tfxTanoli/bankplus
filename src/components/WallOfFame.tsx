@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { StudentSuccessStory } from '../types';
-import { SUCCESS_STORIES, OFFICIAL_INSTAGRAM, OFFICIAL_INSTAGRAM_HANDLE } from '../data/mockData';
+import { SUCCESS_STORIES, OFFICIAL_FACEBOOK, OFFICIAL_FACEBOOK_HANDLE } from '../data/mockData';
 import { StudentFlyerCard } from './StudentFlyerCard';
 import { PhotoManagerModal } from './PhotoManagerModal';
 import { getCustomPhotos } from '../utils/photoStorage';
 import { 
-  Instagram, 
+  Facebook, 
   Search, 
   Filter, 
   Sparkles, 
@@ -99,7 +99,7 @@ export const WallOfFame: React.FC<WallOfFameProps> = ({
 
   return (
     <section className={`space-y-8 ${className}`} id="wall-of-fame">
-      {/* 1. TOP INSTAGRAM CTA BANNER */}
+      {/* 1. TOP FACEBOOK CTA BANNER */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#001f5c] via-[#003399] to-[#0284c7] text-white p-6 sm:p-8 shadow-xl">
         {/* Subtle geometric circles */}
         <div className="absolute -right-12 -top-12 w-64 h-64 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
@@ -108,8 +108,8 @@ export const WallOfFame: React.FC<WallOfFameProps> = ({
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-sky-200 text-xs font-black uppercase tracking-wider backdrop-blur-xs">
-              <Instagram className="w-3.5 h-3.5 text-pink-300" />
-              <span>Official Wall of Fame • @bankplus_learning</span>
+              <Facebook className="w-3.5 h-3.5 text-blue-300" />
+              <span>Official Wall of Fame • {OFFICIAL_FACEBOOK_HANDLE}</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
@@ -117,21 +117,21 @@ export const WallOfFame: React.FC<WallOfFameProps> = ({
             </h2>
 
             <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed">
-              Every card below is an authentic student selection flyer direct from our official Instagram channel. 
+              Every card below is an authentic student selection flyer direct from our official Facebook page. 
               Over 3,000+ students from Tier 2 & 3 cities have successfully started their banking careers through BankPlus.
             </p>
           </div>
 
-          {/* Direct Instagram Action */}
+          {/* Direct Facebook Action */}
           <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
             <a
-              href={OFFICIAL_INSTAGRAM}
+              href={OFFICIAL_FACEBOOK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:from-purple-500 hover:to-rose-400 text-white font-black text-sm shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-white hover:bg-blue-50 text-[#1877F2] font-black text-sm shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95"
             >
-              <Instagram className="w-4 h-4" />
-              <span>Follow @bankplus_learning</span>
+              <Facebook className="w-4 h-4" />
+              <span>Follow {OFFICIAL_FACEBOOK_HANDLE}</span>
               <ExternalLink className="w-4 h-4 opacity-80" />
             </a>
           </div>
@@ -152,8 +152,8 @@ export const WallOfFame: React.FC<WallOfFameProps> = ({
             <div className="text-[11px] font-medium text-blue-200 uppercase tracking-wide">Selection Guarantee</div>
           </div>
           <div className="p-2 rounded-xl bg-white/10 backdrop-blur-xs">
-            <div className="text-xl sm:text-2xl font-black text-pink-300">Daily</div>
-            <div className="text-[11px] font-medium text-blue-200 uppercase tracking-wide">Instagram Updates</div>
+            <div className="text-xl sm:text-2xl font-black text-blue-300">Daily</div>
+            <div className="text-[11px] font-medium text-blue-200 uppercase tracking-wide">Facebook Updates</div>
           </div>
         </div>
       </div>
@@ -207,7 +207,7 @@ export const WallOfFame: React.FC<WallOfFameProps> = ({
                     ? 'bg-white text-[#001f5c] shadow-xs'
                     : 'text-slate-500 hover:text-slate-800'
                 }`}
-                title="Instagram Flyer Poster View"
+                title="Official Flyer Poster View"
               >
                 <Grid2X2 className="w-4 h-4" />
                 <span className="hidden md:inline">Posters</span>
@@ -315,14 +315,14 @@ export const WallOfFame: React.FC<WallOfFameProps> = ({
         </div>
       )}
 
-      {/* 4. PROMINENT BOTTOM INSTAGRAM CALL-TO-ACTION BANNER */}
+      {/* 4. PROMINENT BOTTOM FACEBOOK CALL-TO-ACTION BANNER */}
       <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-[#001f5c] to-[#002b7f] text-white p-8 sm:p-10 shadow-xl overflow-hidden relative">
-        <div className="absolute right-0 bottom-0 translate-x-12 translate-y-12 w-80 h-80 rounded-full bg-pink-500/10 blur-3xl pointer-events-none"></div>
+        <div className="absolute right-0 bottom-0 translate-x-12 translate-y-12 w-80 h-80 rounded-full bg-[#1877F2]/10 blur-3xl pointer-events-none"></div>
 
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/20 border border-pink-400/30 text-pink-300 text-xs font-black uppercase tracking-wider">
-              <Instagram className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1877F2]/20 border border-blue-400/30 text-blue-300 text-xs font-black uppercase tracking-wider">
+              <Facebook className="w-4 h-4" />
               <span>Explore More Student Success</span>
             </div>
 
@@ -331,7 +331,7 @@ export const WallOfFame: React.FC<WallOfFameProps> = ({
             </h3>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              We post new candidate offer letter reveals, interview reaction videos, and live speed-test drills every single day on our official Instagram page <strong className="text-pink-300">@bankplus_learning</strong>.
+              We post new candidate offer letter reveals, interview reaction videos, and live speed-test drills every single day on our official Facebook page <strong className="text-blue-300">{OFFICIAL_FACEBOOK_HANDLE}</strong>.
             </p>
 
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2 text-xs text-blue-200">
@@ -352,17 +352,17 @@ export const WallOfFame: React.FC<WallOfFameProps> = ({
 
           <div className="shrink-0 space-y-2">
             <a
-              href={OFFICIAL_INSTAGRAM}
+              href={OFFICIAL_FACEBOOK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:from-purple-500 hover:to-rose-400 text-white font-black text-base shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-[#1877F2] hover:bg-[#166FE5] text-white font-black text-base shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95"
             >
-              <Instagram className="w-5 h-5" />
-              <span>View More Stories on Instagram</span>
+              <Facebook className="w-5 h-5" />
+              <span>View More Stories on Facebook</span>
               <ExternalLink className="w-4 h-4 opacity-80" />
             </a>
             <span className="text-[11px] text-slate-400 block text-center">
-              Official Handle: @bankplus_learning
+              Official Page: {OFFICIAL_FACEBOOK_HANDLE}
             </span>
           </div>
         </div>

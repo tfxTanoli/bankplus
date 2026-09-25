@@ -9,8 +9,8 @@ import {
   CENTRES,
   ALC_SIGN_UP_FEE,
   ALC_ROYALTY_FEE,
-  OFFICIAL_INSTAGRAM,
-  OFFICIAL_INSTAGRAM_HANDLE
+  OFFICIAL_FACEBOOK,
+  OFFICIAL_FACEBOOK_HANDLE
 } from '../data/mockData';
 import { getMergedCampusLifeList, CAMPUS_LIFE_UPDATED_EVENT, CustomCampusLifeItem } from '../utils/campusLifeSectionStorage';
 import { 
@@ -19,7 +19,7 @@ import {
   Briefcase,
   MessageCircle,
   MapPin,
-  Instagram,
+  Facebook,
   GraduationCap,
   Users,
   CheckCircle2,
@@ -267,7 +267,7 @@ export const ALCPartnerView: React.FC = () => {
                 </h4>
               </div>
               <p className="text-xs text-slate-700 leading-relaxed">
-                <strong className="text-slate-900">Highlighted on our Social Media Pages and Website</strong>. Your center receives an official verified centre listing on the BankPlus portal, verified Instagram shoutouts, and local digital lead redirection.
+                <strong className="text-slate-900">Highlighted on our Social Media Pages and Website</strong>. Your center receives an official verified centre listing on the BankPlus portal, verified Facebook shoutouts, and local digital lead redirection.
               </p>
               <div className="pt-2 text-[11px] font-bold text-slate-700 flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-pink-600 shrink-0" />
@@ -501,12 +501,12 @@ export const ALCPartnerView: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Student Friendly Learning Culture & Instagram Highlights */}
+      {/* 3. Student Friendly Learning Culture & Facebook Highlights */}
       <section className="space-y-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-50 text-pink-700 text-xs font-bold border border-pink-200 mb-1">
-              <Instagram className="w-3.5 h-3.5 text-pink-600" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200 mb-1">
+              <Facebook className="w-3.5 h-3.5 text-[#1877F2]" />
               <span>Student Friendly Academies</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-[#001f5c]">
@@ -518,13 +518,13 @@ export const ALCPartnerView: React.FC = () => {
           </div>
 
           <a
-            href={OFFICIAL_INSTAGRAM}
+            href={OFFICIAL_FACEBOOK}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-700 text-xs font-bold flex items-center gap-1.5 border border-pink-200 transition-colors"
+            className="px-4 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold flex items-center gap-1.5 border border-blue-200 transition-colors"
           >
-            <Instagram className="w-4 h-4" />
-            <span>Follow {OFFICIAL_INSTAGRAM_HANDLE}</span>
+            <Facebook className="w-4 h-4" />
+            <span>Follow {OFFICIAL_FACEBOOK_HANDLE}</span>
             <ExternalLink className="w-3 h-3 ml-0.5" />
           </a>
         </div>

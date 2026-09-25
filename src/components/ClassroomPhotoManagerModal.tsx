@@ -3,7 +3,7 @@ import {
   X, Upload, Camera, Trash2, CheckCircle2, Sparkles, 
   RefreshCw, Video, School, AlertCircle
 } from 'lucide-react';
-import { INSTAGRAM_STUDENT_REELS, STUDENT_COMMUNITY_GALLERY } from '../data/mockData';
+import { FACEBOOK_STUDENT_REELS, STUDENT_COMMUNITY_GALLERY } from '../data/mockData';
 import { 
   getDrillClassroomPhotos, 
   saveDrillClassroomPhoto, 
@@ -93,7 +93,7 @@ export const ClassroomPhotoManagerModal: React.FC<ClassroomPhotoManagerModalProp
         // If no direct filename match, assign to next unassigned slot
         if (!targetKey || usedKeys.has(targetKey)) {
           // Check drills first
-          const unassignedDrill = INSTAGRAM_STUDENT_REELS.find(
+          const unassignedDrill = FACEBOOK_STUDENT_REELS.find(
             (r) => !newPhotos[`drill-${r.id}`] && !usedKeys.has(`drill-${r.id}`)
           );
           if (unassignedDrill) {
@@ -152,7 +152,7 @@ export const ClassroomPhotoManagerModal: React.FC<ClassroomPhotoManagerModalProp
   };
 
   // Counts
-  const drillAppliedCount = INSTAGRAM_STUDENT_REELS.filter((r) => customPhotos[`drill-${r.id}`]).length;
+  const drillAppliedCount = FACEBOOK_STUDENT_REELS.filter((r) => customPhotos[`drill-${r.id}`]).length;
   const classroomAppliedCount = STUDENT_COMMUNITY_GALLERY.slice(0, 5).filter((g) => customPhotos[`classroom-${g.id}`]).length;
   const totalApplied = drillAppliedCount + classroomAppliedCount;
 
@@ -313,7 +313,7 @@ export const ClassroomPhotoManagerModal: React.FC<ClassroomPhotoManagerModalProp
         <div className="p-4 sm:p-5 overflow-y-auto space-y-3 grow">
           {activeTab === 'drills' ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-              {INSTAGRAM_STUDENT_REELS.map((reel, idx) => {
+              {FACEBOOK_STUDENT_REELS.map((reel, idx) => {
                 const storageKey = `drill-${reel.id}`;
                 const currentPhoto = customPhotos[storageKey] || reel.thumbnail;
                 const isCustom = Boolean(customPhotos[storageKey]);

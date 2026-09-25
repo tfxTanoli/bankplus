@@ -69,8 +69,8 @@ export interface StudentSuccessStory {
   shortQuote: string;
   fullJourney: string;
   videoDuration?: string;
-  instagramUrl?: string;
-  isInstagramVerified?: boolean;
+  facebookUrl?: string;
+  isFacebookVerified?: boolean;
   flyerImage?: string;
   originalFlyerFile?: string;
   selectionBatch?: string;
@@ -115,7 +115,7 @@ export interface StudentReel {
   fileName?: string;
   duration: string;
   views: string;
-  instagramLink: string;
+  facebookLink: string;
   quote: string;
 }
 

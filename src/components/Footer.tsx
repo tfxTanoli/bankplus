@@ -14,7 +14,7 @@ import {
   Send, 
   Clock, 
   Heart,
-  Instagram,
+  Facebook,
   Youtube,
   Building2,
   ExternalLink,
@@ -31,8 +31,8 @@ import {
   OFFICIAL_CONTACT_PHONE,
   OFFICIAL_CONTACT_PHONE_RAW,
   OFFICIAL_EMAIL,
-  OFFICIAL_INSTAGRAM, 
-  OFFICIAL_INSTAGRAM_HANDLE,
+  OFFICIAL_FACEBOOK, 
+  OFFICIAL_FACEBOOK_HANDLE,
   OFFICIAL_YOUTUBE,
   OFFICIAL_YOUTUBE_HANDLE,
   REGISTERED_OFFICE,
@@ -126,25 +126,25 @@ export const Footer: React.FC<FooterProps> = ({
               BankPlus is India&apos;s leading specialized academy with <strong>3,000+ Banking Careers created</strong>. Dual-track preparation for Government Bank Exams (SBI, IBPS, RRB) and Private Banks (HDFC, ICICI, Axis) with direct placement drives.
             </p>
 
-            {/* Official Social Channels: Instagram & YouTube */}
+            {/* Official Social Channels: Facebook & YouTube */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {/* Instagram Handle */}
-              <div className="p-3 bg-gradient-to-r from-pink-950/40 via-purple-950/40 to-slate-900 rounded-xl border border-pink-500/30 flex items-center justify-between gap-2">
+              {/* Facebook Page */}
+              <div className="p-3 bg-gradient-to-r from-blue-950/40 via-indigo-950/40 to-slate-900 rounded-xl border border-blue-500/30 flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white shrink-0">
-                    <Instagram className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-lg bg-[#1877F2] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <Facebook className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-[11px] font-bold text-white block truncate">Instagram</span>
-                    <span className="text-[10px] text-pink-300 font-medium block truncate">{OFFICIAL_INSTAGRAM_HANDLE}</span>
+                    <span className="text-[11px] font-bold text-white block truncate">Facebook</span>
+                    <span className="text-[10px] text-blue-300 font-medium block truncate">{OFFICIAL_FACEBOOK_HANDLE}</span>
                   </div>
                 </div>
                 <a
-                  href={OFFICIAL_INSTAGRAM}
+                  href={OFFICIAL_FACEBOOK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white text-[11px] font-bold transition-all flex items-center gap-1 shrink-0"
-                  title="Follow BankPlus on Instagram"
+                  title="Follow BankPlus on Facebook"
                 >
                   <span>Follow</span>
                   <ExternalLink className="w-2.5 h-2.5" />
@@ -319,13 +319,13 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={OFFICIAL_INSTAGRAM}
+                  href={OFFICIAL_FACEBOOK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-pink-400 hover:text-pink-300 transition-colors flex items-center gap-1 text-left"
+                  className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1 text-left"
                 >
-                  <Instagram className="w-3.5 h-3.5" />
-                  <span>Success Stories on Instagram</span>
+                  <Facebook className="w-3.5 h-3.5" />
+                  <span>Success Stories on Facebook</span>
                 </a>
               </li>
               <li>
@@ -385,14 +385,14 @@ export const Footer: React.FC<FooterProps> = ({
               <span className="text-slate-700 select-none hidden sm:inline">•</span>
               <div className="flex items-center gap-3">
                 <a 
-                  href={OFFICIAL_INSTAGRAM} 
+                  href={OFFICIAL_FACEBOOK} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-pink-400 hover:text-pink-300 font-medium inline-flex items-center gap-1 transition-colors"
-                  title="Follow BankPlus on Instagram"
+                  className="text-blue-400 hover:text-blue-300 font-medium inline-flex items-center gap-1 transition-colors"
+                  title="Follow BankPlus on Facebook"
                 >
-                  <Instagram className="w-3.5 h-3.5" />
-                  <span>Instagram</span>
+                  <Facebook className="w-3.5 h-3.5" />
+                  <span>Facebook</span>
                 </a>
                 <span className="text-slate-700 select-none">•</span>
                 <a 

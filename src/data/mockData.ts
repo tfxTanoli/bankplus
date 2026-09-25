@@ -13,8 +13,8 @@ export const OFFICIAL_ALC_WHATSAPP = '011-69290447';
 export const OFFICIAL_ALC_WHATSAPP_RAW = '911169290447';
 export const ALC_SIGN_UP_FEE = '₹51,000';
 export const ALC_ROYALTY_FEE = '₹1,500/Student Login';
-export const OFFICIAL_INSTAGRAM = 'https://www.instagram.com/bankplus_learning/';
-export const OFFICIAL_INSTAGRAM_HANDLE = '@bankplus_learning';
+export const OFFICIAL_FACEBOOK = 'https://www.facebook.com/bankpluslearning/';
+export const OFFICIAL_FACEBOOK_HANDLE = '@bankpluslearning';
 export const OFFICIAL_YOUTUBE = 'https://www.youtube.com/@BankplusLearning';
 export const OFFICIAL_YOUTUBE_HANDLE = '@BankplusLearning';
 export const SELECTION_GUARANTEE_STATEMENT = '100% Selection Guarantee = Unlimited Training + Unlimited Interviews till Selection';
@@ -397,8 +397,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'BankPlus rigorous branch simulations and mock interview panels helped me crack Axis Bank Assistant Manager in my very first attempt.',
     fullJourney: 'Coming from an academic background with no prior banking experience, I was anxious about technical banking interviews. The BankPlus team trained me thoroughly on KYC guidelines, credit assessment, and retail branch operations. During the Axis Bank recruitment drive, I confidently resolved every case-study question and secured the Assistant Manager role with a top offer.',
     videoDuration: '3m 15s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '3.png',
     selectionBatch: 'Verified Selection • Axis Bank Cohort'
   },
@@ -417,8 +417,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'From nervous beginner to managing high-volume cash and customer transactions at Bandhan Bank — BankPlus made it reality.',
     fullJourney: 'The practical terminal practice and core banking software modules taught at BankPlus gave me hands-on confidence. The instructors patiently walked me through teller balancing, counterfeit detection, and high-value clearing protocols. I cleared the Bandhan Bank interview with immediate selection.',
     videoDuration: '2m 45s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '2-1.png',
     selectionBatch: 'Verified Selection • Bandhan Bank Cohort'
   },
@@ -437,8 +437,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'BankPlus is the only institute that teaches live balance-sheet auditing and CIBIL risk calculation before the interview.',
     fullJourney: 'Credit underwriting requires deep financial statement analysis. BankPlus mentors, who were former Chief Managers at nationalized banks, analyzed real SME financial reports with us line-by-line. In the Axis Bank final panel interview, my thorough answers on Working Capital ratios and GST audit trails resulted in an instant offer.',
     videoDuration: '3m 50s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: 'January 2019.png',
     selectionBatch: 'Verified Selection • Axis Bank Cohort'
   },
@@ -457,8 +457,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'BankPlus personalized interview feedback converted my self-doubt into executive presence.',
     fullJourney: 'I had prepared on my own for months without results. At BankPlus Kakadeo centre, I received daily mock interview practice and structured feedback on body language, banking terminology, and product positioning. When IndusInd Bank conducted campus drives, I was among the first selected as Assistant Manager.',
     videoDuration: '3m 05s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: 'January 2020.png',
     selectionBatch: 'Verified Selection • IndusInd Bank Cohort'
   },
@@ -477,8 +477,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Kotak Mahindra Bank recruited 14 of us in one day thanks to BankPlus corporate campus linkages.',
     fullJourney: 'The faculty at BankPlus taught us how commercial banks generate fee-based income, cross-sell wealth products, and structure working capital credit. The specialized Kotak prep module gave us a huge advantage over walk-in candidates.',
     videoDuration: '3m 30s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '65-2.png',
     selectionBatch: 'Verified Selection • Kotak Mahindra Cohort'
   },
@@ -497,8 +497,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'BankPlus transformed my career trajectory in just 90 days with guaranteed interview opportunities.',
     fullJourney: 'I joined with a simple graduation degree and zero corporate contacts. BankPlus provided continuous mock drills, banking software tutorials, and confidence training. I received my formal appointment letter for Kotak Mahindra Bank within two weeks of course completion.',
     videoDuration: '2m 55s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '67.png',
     selectionBatch: 'Verified Selection • Kotak Mahindra Cohort'
   },
@@ -517,8 +517,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Getting placed in India’s leading private bank was my lifelong dream. BankPlus made it a structured, stress-free reality.',
     fullJourney: 'The comprehensive syllabus covered RBI regulations, retail lending, and customer relationship building. BankPlus scheduled my direct interview with the Zonal Hiring Team at HDFC Bank, and the preparation matched the actual interview questions 100%.',
     videoDuration: '3m 10s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '31.png',
     selectionBatch: 'Verified Selection • HDFC Bank Cohort'
   },
@@ -537,8 +537,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'BankPlus international banking curriculum and corporate communication training secured my selection at RBS.',
     fullJourney: 'RBS global operations required strong analytical skills, trade finance awareness, and immaculate business communication. BankPlus trainers groomed my presentation skills and gave me intensive practice on swift messaging and global payments.',
     videoDuration: '4m 00s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '20.png',
     selectionBatch: 'Verified Selection • RBS Cohort'
   },
@@ -557,8 +557,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Practical voice drills and live customer pitch simulations gave me the winning edge during HDB selections.',
     fullJourney: 'BankPlus lab had dedicated telephone simulation booths where we practiced handling customer inquiries, resolving loan status questions, and closing asset applications. The HR at HDB praised our ready-to-deploy preparedness.',
     videoDuration: '2m 40s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '76-1.png',
     selectionBatch: 'Verified Selection • HDB Cohort'
   },
@@ -577,8 +577,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'The mentor support was phenomenal. Every faculty member treated our placement goal as their personal mission.',
     fullJourney: 'I lacked confidence in facing corporate panels. The faculty at BankPlus conducted continuous 1-on-1 interview simulations, corrected my technical gaps, and ensured I was fully ready before the Axis Bank drive.',
     videoDuration: '3m 20s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '74.png',
     selectionBatch: 'Verified Selection • Axis Bank Cohort'
   },
@@ -597,8 +597,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Joined BankPlus with zero banking background. Graduated with an Assistant Manager appointment letter in hand.',
     fullJourney: 'The structured classroom modules at BankPlus Gorakhpur centre broke down complex retail banking topics into easy daily drills. The mock assessments accurately mirrored Kotak’s national aptitude and personal interview rounds.',
     videoDuration: '3m 10s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '62.png',
     selectionBatch: 'Verified Selection • Kotak Mahindra Cohort'
   },
@@ -617,8 +617,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Clear curriculum, hands-on practice, and direct campus placement — BankPlus delivered 100% on its promise.',
     fullJourney: 'The computer lab tests and daily GK quizzes gave me high competitive speed. During the Kotak campus selection, I topped the aptitude round and received the formal Assistant Manager offer on the same day.',
     videoDuration: '3m 00s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '63.png',
     selectionBatch: 'Verified Selection • Kotak Mahindra Cohort'
   },
@@ -637,8 +637,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'BankPlus gives you the exact skills banks test for — CASA pitching, KYC compliance, and branch operations.',
     fullJourney: 'From Bareilly to getting selected at HDFC Bank was a dream journey. BankPlus mentors guided my interview responses and gave me the composure required to succeed in a leading commercial bank.',
     videoDuration: '2m 50s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '37.png',
     selectionBatch: 'Verified Selection • HDFC Bank Cohort'
   },
@@ -657,8 +657,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Specialized training in property title verification and retail mortgages placed me directly at Indiabulls.',
     fullJourney: 'Housing finance has massive hiring demand. BankPlus trained us in property valuation basics, home loan documentation, and CIBIL credit grading. The hiring managers at Indiabulls noted that our domain clarity was far ahead of standard graduates.',
     videoDuration: '3m 25s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '25.png',
     selectionBatch: 'Verified Selection • Indiabulls Cohort'
   },
@@ -677,8 +677,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'BankPlus taught me banking as a real trade, not just textbook theory.',
     fullJourney: 'In just 8 weeks, I mastered cash management, vault balancing, customer greeting protocols, and account servicing. Bandhan Bank conducted interviews at BankPlus centre, and I received my appointment letter within 48 hours.',
     videoDuration: '2m 45s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '54-1.png',
     selectionBatch: 'Verified Selection • Bandhan Bank Cohort'
   },
@@ -697,8 +697,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'BankPlus taught us how to build genuine client relationships and achieve branch targets comfortably.',
     fullJourney: 'The mentors at BankPlus trained us in consultative selling, merchant POS onboarding, and wealth management. Kotak Mahindra Bank selected me as Asst. Manager with high competitive recognition.',
     videoDuration: '2m 55s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: '22.png',
     selectionBatch: 'Verified Selection • Kotak Mahindra Cohort'
   },
@@ -717,8 +717,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'The direct campus drive organized by BankPlus at Kanpur was the turning point in my life.',
     fullJourney: 'BankPlus brought leading banks directly to our campus. HDFC Bank evaluated our technical know-how, reasoning ability, and customer skills. Thanks to the thorough preparation at BankPlus, I cleared every round.',
     videoDuration: '3m 05s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     originalFlyerFile: 'Copy of Placements BANKPLUS (12).png',
     selectionBatch: 'Verified Selection • HDFC Bank Cohort'
   },
@@ -737,8 +737,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Stepped into a Senior Officer position straight out of training. Gratitude to the dedicated BankPlus mentors!',
     fullJourney: 'The mortgage underwriting exercises and hands-on case studies conducted at BankPlus gave me the ability to handle high-stakes customer conversations. Indiabulls selected me as a Senior Officer with an attractive annual CTC.',
     videoDuration: '3m 35s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     selectionBatch: 'Verified Selection • Indiabulls Cohort'
   },
   {
@@ -756,8 +756,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'BankPlus changed my family’s life. The direct corporate connection with HDFC Bank was seamless.',
     fullJourney: 'I came from a modest family in Varanasi. BankPlus faculty not only taught me banking fundamentals but also assisted with communication and interview grooming. Today, I proudly work as an Officer in HDFC Bank.',
     videoDuration: '3m 15s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     selectionBatch: 'Verified Selection • HDFC Bank Cohort'
   },
   {
@@ -775,8 +775,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'The best decision of my career. Kotak Mahindra Bank recognized our rigorous BankPlus training during the final round.',
     fullJourney: 'When the Kotak recruitment panel asked detailed scenario questions regarding customer grievance redressal and digital KYC, I answered effortlessly using BankPlus operational case studies. I received my formal appointment letter right away.',
     videoDuration: '3m 20s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     selectionBatch: 'Verified Selection • Kotak Mahindra Cohort'
   },
   {
@@ -794,8 +794,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Structured mock interviews and personalized feedback make BankPlus completely unmatched.',
     fullJourney: 'I spent just 75 days in BankPlus Kakadeo centre. The daily quantitative aptitude drills, banking awareness sessions, and mock group discussions prepared me thoroughly for the Kotak selection process.',
     videoDuration: '3m 10s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     selectionBatch: 'Verified Selection • Kotak Mahindra Cohort'
   },
   {
@@ -813,8 +813,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Understanding credit appraisal ratios and balance sheet evaluation helped me secure this dream role at Axis Bank.',
     fullJourney: 'Credit underwriting is considered difficult for freshers, but BankPlus broke down working capital assessments, debt service coverage ratios (DSCR), and collateral appraisals with live case studies. Axis Bank selected me with an exceptional CTC.',
     videoDuration: '3m 40s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     selectionBatch: 'Verified Selection • Axis Bank Cohort'
   },
   {
@@ -832,8 +832,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Practical voice drills and live CRM software training at BankPlus secured my job at HDB Financial Services.',
     fullJourney: 'BankPlus taught us real corporate CRM systems and phone banking protocols. My interview with HDB HR was smooth because I was already familiar with credit card verification, loan dispatch status, and dispute resolution.',
     videoDuration: '2m 50s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     selectionBatch: 'Verified Selection • HDB Cohort'
   },
   {
@@ -851,8 +851,8 @@ export const SUCCESS_STORIES: StudentSuccessStory[] = [
     shortQuote: 'Cleared SBI Junior Associate in my very first attempt with the guidance of BankPlus retired DGM mentors.',
     fullJourney: 'My lifelong dream was to wear the SBI lanyard. BankPlus speed mathematics drills, computer lab timed practice tests, and daily current affairs digests made all the difference in cracking Prelims and Mains with high marks.',
     videoDuration: '3m 45s',
-    instagramUrl: 'https://www.instagram.com/bankplus_learning/',
-    isInstagramVerified: true,
+    facebookUrl: 'https://www.facebook.com/bankpluslearning/',
+    isFacebookVerified: true,
     selectionBatch: 'Verified Selection • SBI Cohort'
   }
 ];
@@ -1066,7 +1066,7 @@ export const CENTRES: CentreLocation[] = [
   }
 ];
 
-export const INSTAGRAM_STUDENT_REELS: StudentReel[] = [
+export const FACEBOOK_STUDENT_REELS: StudentReel[] = [
   {
     id: 'reel-1',
     title: 'From College Graduate to Axis Bank Asst. Manager in 75 Days!',
@@ -1078,7 +1078,7 @@ export const INSTAGRAM_STUDENT_REELS: StudentReel[] = [
     fileName: 'reel-1-classroom-training-kanpur.jpg',
     duration: '0:48',
     views: '38.4K',
-    instagramLink: 'https://www.instagram.com/bankplus_learning/',
+    facebookLink: 'https://www.facebook.com/bankpluslearning/',
     quote: 'Zero corporate experience. The 90-day BankPlus mock interview drills cleared all my technical doubts completely.'
   },
   {
@@ -1092,7 +1092,7 @@ export const INSTAGRAM_STUDENT_REELS: StudentReel[] = [
     fileName: 'reel-2-selection-drive-cohort.jpg',
     duration: '0:58',
     views: '64.2K',
-    instagramLink: 'https://www.instagram.com/bankplus_learning/',
+    facebookLink: 'https://www.facebook.com/bankpluslearning/',
     quote: 'My father was emotional when I showed the SBI appointment letter. Endless gratitude to the BankPlus retired DGM faculty!'
   },
   {
@@ -1106,7 +1106,7 @@ export const INSTAGRAM_STUDENT_REELS: StudentReel[] = [
     fileName: 'reel-3-live-mock-interview-drill.jpg',
     duration: '0:35',
     views: '29.5K',
-    instagramLink: 'https://www.instagram.com/bankplus_learning/',
+    facebookLink: 'https://www.facebook.com/bankpluslearning/',
     quote: 'Solving 100 IBPS questions in 60 minutes with Vedic tricks and live screen timers.'
   },
   {
@@ -1120,7 +1120,7 @@ export const INSTAGRAM_STUDENT_REELS: StudentReel[] = [
     fileName: 'reel-4-campus-drive-batch.jpg',
     duration: '1:12',
     views: '58.7K',
-    instagramLink: 'https://www.instagram.com/bankplus_learning/',
+    facebookLink: 'https://www.facebook.com/bankpluslearning/',
     quote: 'Handing over real appointment letters to excited freshers starting their professional banking journey.'
   }
 ];

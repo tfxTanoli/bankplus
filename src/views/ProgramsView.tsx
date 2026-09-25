@@ -6,8 +6,8 @@ import {
   OFFICIAL_COURSE_WHATSAPP_RAW,
   OFFICIAL_CONTACT_PHONE,
   OFFICIAL_CONTACT_PHONE_RAW,
-  OFFICIAL_INSTAGRAM,
-  OFFICIAL_INSTAGRAM_HANDLE,
+  OFFICIAL_FACEBOOK,
+  OFFICIAL_FACEBOOK_HANDLE,
   SELECTION_GUARANTEE_STATEMENT,
   PLAY_STORE_APP_NAME,
   PLAY_STORE_URL
@@ -30,7 +30,7 @@ import {
   MessageCircle,
   Calendar,
   Check,
-  Instagram,
+  Facebook,
   ExternalLink,
   Phone,
   Smartphone,
@@ -486,13 +486,13 @@ export const ProgramsView: React.FC<ProgramsViewProps> = ({ onOpenEnquiry }) => 
             </h3>
           </div>
           <a
-            href={OFFICIAL_INSTAGRAM}
+            href={OFFICIAL_FACEBOOK}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-bold text-pink-700 hover:text-pink-800 flex items-center gap-1"
+            className="text-xs font-bold text-blue-700 hover:text-blue-800 flex items-center gap-1"
           >
-            <Instagram className="w-4 h-4 text-pink-600" />
-            <span>Follow {OFFICIAL_INSTAGRAM_HANDLE}</span>
+            <Facebook className="w-4 h-4 text-[#1877F2]" />
+            <span>Follow {OFFICIAL_FACEBOOK_HANDLE}</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
