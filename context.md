@@ -734,7 +734,12 @@ default install is known to build successfully.
 The exact error text could not be read from here: the build log shows none, the local
 Vercel CLI token is invalid (API 403), and GitHub carries no check-run output.
 
-### If a deploy still fails at install
+**Outcome: fixed.** The deploy of `07d4bed` succeeded (Vercel status `success`, ~35 s).
+Both `bankplus-six.vercel.app` and `www.bankplus.in` serve bundle `index-CVIRjaJ6.js`,
+which contains the Facebook page URL 30 times (matching the local build) and 0 matches
+for the old channel.
+
+### If a future deploy fails at install
 The remaining variable is Vercel's **restored build cache** (`Restored build cache from
 previous deployment`), taken from a deployment two weeks older. Redeploy with **"Use
 existing Build Cache" unchecked**, or set `VERCEL_FORCE_NO_BUILD_CACHE=1` in Project
